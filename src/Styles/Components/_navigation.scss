@@ -1,0 +1,210 @@
+/* ============================= */
+/*      SIDEBAR PRINCIPAL        */
+/* ============================= */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: $principal_color;
+  color: $text_color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $spacing-lg;
+
+  /* ============================= */
+  /*      SECTION PROFIL           */
+  /* ============================= */
+  .id {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+
+    .idcontent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid $second_color;
+        margin-bottom: $spacing-md;
+      }
+
+      h3 {
+        font-family: $font-secondary;
+        font-size: $font-size-large;
+        font-weight: $font-weight-bold;
+        margin: 0;
+        color: $text_color;
+      }
+    }
+  }
+
+  /* ============================= */
+  /*      NAVIGATION PRINCIPALE    */
+  /* ============================= */
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: $spacing-md;
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $text_color;
+        font-weight: $font-weight-normal;
+        padding: $spacing-sm;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        i {
+          margin-right: $spacing-sm;
+          font-size: 1.2rem;
+        }
+
+        &:hover,
+        &.navActive {
+          background-color: $second_color;
+          color: $principal_color;
+        }
+      }
+    }
+  }
+
+  /* ============================= */
+  /*      RESEAUX SOCIAUX          */
+  /* ============================= */
+  .socialNetwork ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    padding: 0;
+    margin: 0;
+
+    li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $second_color;
+      color: $principal_color;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: darken($second_color, 10%);
+        color: $principal_font_color;
+      }
+    }
+  }
+
+  /* ============================= */
+  /*      SIGNATURE DU CV          */
+  /* ============================= */
+  .signature p {
+    text-align: center;
+    font-size: $font-size-small;
+    color: $second_text_color;
+    margin-top: $spacing-md;
+  }
+
+  /* ============================= */
+  /*      RESPONSIVITÉ             */
+  /* ============================= */
+
+  @media screen and (max-width: 840px) {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-sm $spacing-md;
+
+    .id {
+      margin-bottom: 0;
+
+      .idcontent {
+        flex-direction: row;
+        align-items: center;
+
+        img {
+          width: 60px;
+          height: 60px;
+          margin-left: $spacing-md;
+        }
+
+        h3 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .navigation ul {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-md;
+    }
+
+    .socialNetwork ul {
+      gap: $spacing-sm;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+
+    .navigation ul {
+      flex-direction: column;
+      gap: $spacing-xs;
+    }
+
+    .id .idcontent {
+      flex-direction: column;
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin: 0 0 $spacing-sm 0;
+      }
+
+      h3 {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  /* ============================= */
+  /*      MODE COMPACT (≤580px)    */
+  /* ============================= */
+  @media screen and (max-width: 580px) {
+    .navigation ul {
+      justify-content: space-between;
+
+      li {
+        padding: 1rem 0 !important;
+      }
+
+      a {
+        justify-content: center; // centrer les icônes
+      }
+
+      i {
+        font-size: 1.4rem !important;
+        transform: translateY(-3px) !important;
+      }
+
+      span {
+        display: none; // cacher le texte
+      }
+    }
+  }
+}
