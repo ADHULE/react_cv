@@ -16,7 +16,7 @@ const App = () => {
       {/* Routes contient toutes les définitions de navigation */}
       <Routes>
         {/* Chaque Route correspond à un chemin (URL) et affiche un composant */}
-        <Route path="/" element={<Home />} />             
+        <Route path="/" exact element={<Home />} />             
         <Route path="/contact" element={<Contact />} />  
         <Route path="/knowledges" element={<Knowledges />} /> 
         <Route path="/portfolio" element={<Portfolio />} />
