@@ -11,6 +11,7 @@ import Portfolio from "./Pages/Portfolio";
 
 const App = () => {
   return (
+    
     // BrowserRouter englobe toute l'application et permet d'utiliser le routage
     <BrowserRouter>
       {/* Routes contient toutes les définitions de navigation */}
