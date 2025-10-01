@@ -1,61 +1,225 @@
 .home {
     display: flex;
     min-height: 100vh;
-    background: linear-gradient(115deg, $second_color 50%, transparent 100%);
     position: relative;
     overflow: hidden;
+    // background: linear-gradient(115deg, $accent_color 10%, transparent 100%);
 
-    .homeContent {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
+    /* Effet : Pseudo-élément pour un effet visuel en fond (comme des cercles ou des formes) */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle at top left, rgba($accent_color, 0.1) 0%, transparent 50%);
 
-        .content {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            height: 95vh;
-            width: 100%;
+        z-index: 1;
+        /* Reste sous le contenu */
+        animation: subtleRotate 60s linear infinite;
+        /* Animation de rotation subtile */
+    }
+}
 
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+.homeContent {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 2;
+    /* S'assure que le contenu est au-dessus du pseudo-élément */
+}
 
-            &:hover {
-                box-shadow: 0 10px 0 10px $second_text_color;
-            }
+.content {
+    text-align: center;
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
 
-            h1 {
-                font-size: 3rem;
-                margin-bottom: 0.5rem;
+    &:hover {
+        /* Effet de brillance subtile et léger soulèvement */
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 15px $accent_color;
+    }
+}
 
-                span {
-                    color: $accent_color; // Ajoute une couleur d’accent
-                }
-            }
 
-            h2 {
-                font-size: 1.5rem;
-                font-weight: 300;
-                margin-bottom: 1.5rem;
-            }
+/* TYPOGRAPHIE ET TITRES */
 
-            .download-btn {
-                display: inline-block;
-                padding: 0.75rem 1.5rem;
-                background-color: $accent_color;
-                color: white;
-                border-radius: 8px;
-                text-decoration: none;
-                font-weight: 500;
-                transition: background 0.3s ease;
+/* H1 et H2 */
+.content {
+    h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        /* Taille réactive */
+        margin-bottom: 0.2rem;
+        color: white;
+        /* Titres blancs pour contraster avec le fond sombre */
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
-                &:hover {
-                    background-color: darken($accent_color, 10%);
-                }
-            }
+        span {
+            color: $accent_color;
         }
+    }
+
+    h2 {
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* H3 (Titre de section) */
+.childrenContent h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+
+    /* Changé à blanc pour la cohérence sur fond sombre */
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid $accent_color;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* SPAN (Mots clés, Slogan) */
+.childrenContent h3 span {
+    color: $success_color;
+    /* Utilisé une variable pour le vert */
+    font-weight: 900;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.name-bold {
+    font-weight: 900;
+    color: $accent_color;
+}
+
+
+
+/* PARAGRAPHES ET CONTENU */
+
+/* Paragraphes généraux */
+.childrenContent p,
+.cta-text,
+.hook {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    /* Texte blanc/clair pour le contraste */
+    margin-bottom: 20px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Paragraphe d'impact */
+.impact-statement {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $accent_color;
+    /* Couleur d'accent pour le texte d'impact */
+    padding: 15px;
+    border-left: 5px solid $accent_color;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Fond sombre et subtil */
+    border-radius: 0 8px 8px 0;
+}
+
+/* Mise en gras dans les paragraphes */
+.childrenContent p strong {
+    color: $success_color;
+    font-weight: 700;
+}
+
+
+
+/* BLOCS ENFANTS (left/right) */
+.childrenContent {
+    display: flex;
+    flex-wrap: wrap;
+    /* Pour la réactivité */
+    margin-bottom: 30px;
+
+    .left,
+    .right {
+        width: 50%;
+        padding: 20px;
+        margin: 0;
+        border: none;
+
+        transition: transform 0.4s ease;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+}
+
+/* Pour la réactivité sur les petits écrans */
+@media (max-width: 768px) {
+    .childrenContent {
+        flex-direction: column;
+
+        .left,
+        .right {
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+}
+
+
+/* BOUTON DE TÉLÉCHARGEMENT (CTA) */
+.download-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: $accent_color;
+    color: white;
+    border-radius: 50px;
+    /* Forme de pilule pour le moderne */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid $accent_color;
+    /* Bordure pour l'effet hover */
+    box-shadow: 0 4px 15px rgba($accent_color, 0.4);
+
+    &:hover {
+        background-color: white;
+        /* Inversion des couleurs au hover */
+        color: $accent_color;
+        box-shadow: 0 6px 20px rgba($accent_color, 0.6);
+        transform: translateY(-2px);
+        /* Léger soulèvement */
+    }
+}
+
+
+
+/* ANIMATIONS GLOBALES */
+
+@keyframes subtleRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }

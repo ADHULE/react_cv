@@ -8,6 +8,9 @@ const Knowledges = () => {
       <div className="knowledgesContent">
         <div className="content">
           <h1>Knowledges</h1>
+
+    
+
         </div>
       </div>
     </div>

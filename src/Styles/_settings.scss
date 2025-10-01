@@ -2,7 +2,6 @@
 /*      IMPORT DE POLICES         */
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&family=Roboto:wght@400;700&display=swap');
 
-
 /* ============================= */
 /*     VARIABLES DE STYLE        */
 /* ============================= */
@@ -15,6 +14,7 @@ $principal_font_color: #f8fafc;   // Presque blanc — clarté, neutralité
 $second_text_color: #94a3b8;      // Gris bleuté — subtilité, hiérarchie visuelle
 $accent_color: #007BFF;
 $notfound_color:rgba(224, 13, 13, 0.664);
+$success_color:#28a745;
 /* Polices */
 $font-primary: 'Roboto', sans-serif;       // Texte général
 $font-secondary: 'Nova Round', cursive;   // Titres / nom
