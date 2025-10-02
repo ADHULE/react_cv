@@ -26,7 +26,7 @@ const Home = () => {
             <div className="left">
               <h3>Expertise Technique</h3>
               <p>
-                Passionné par la **conception et le déploiement** d'applications web robustes. Je transforme vos défis métiers complexes en **solutions logicielles performantes et évolutives**.
+                Passionné par la conception et le déploiement d'applications web robustes. Je transforme vos défis métiers complexes en solutions logicielles performantes et évolutives.
               </p>
             </div>
             
@@ -36,7 +36,7 @@ const Home = () => {
                 SLOGAN : <span>Amour, Confiance et Travail</span>{" "}
               </h3>
               <p className="impact-statement">
-                **Coder votre succès est notre métier.** La résolution de vos problèmes est notre objectif, et la réalisation de vos ambitions est notre priorité absolue.
+                Coder votre succès est notre métier. La résolution de vos problèmes est notre objectif, et la réalisation de vos ambitions est notre priorité absolue.
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Home = () => {
           {/* Section 3 : Appel à l'Action (CTA) */}
           <footer>
              <p className="cta-text">
-                Prêt à optimiser votre **stack technique** ? Téléchargez mon CV pour explorer mes réalisations concrètes.
+                Prêt à optimiser votre stack technique ? Téléchargez mon CV pour explorer mes réalisations concrètes.
              </p>
              <a href="#" target="_blank" className="download-btn">
                 📄 Télécharger le PDF

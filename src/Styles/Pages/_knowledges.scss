@@ -1,48 +1,13 @@
 .knowledges {
     display: flex;
     min-height: 100vh;
-    background: linear-gradient(115deg, $second_color 50%, transparent 100%);
-    position: relative;
-    overflow: hidden;
+    // position: relative;
+    // overflow: hidden;
 
     .knowledgesContent {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
+        // max-width: 1200px;
+        margin: 0 auto;
+        // padding: 2rem;
 
-        .content {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            height: 95vh;
-            width: 100%;
-
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-
-            &:hover {
-                box-shadow: 0 10px 0 10px $second_text_color;
-            }
-
-            h1 {
-                font-size: 3rem;
-                margin-bottom: 0.5rem;
-
-                span {
-                    color: $accent_color; // Ajoute une couleur d’accent
-                }
-            }
-
-            h2 {
-                font-size: 1.5rem;
-                font-weight: 300;
-                margin-bottom: 1.5rem;
-            }
-
-           
-        }
     }
 }

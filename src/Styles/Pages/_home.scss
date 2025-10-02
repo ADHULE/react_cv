@@ -4,7 +4,8 @@
     position: relative;
     overflow: hidden;
     // background: linear-gradient(115deg, $accent_color 10%, transparent 100%);
-
+    
+    
     /* Effet : Pseudo-élément pour un effet visuel en fond (comme des cercles ou des formes) */
     &::before {
         content: '';
@@ -30,6 +31,16 @@
     padding: 2rem;
     z-index: 2;
     /* S'assure que le contenu est au-dessus du pseudo-élément */
+    &:after{
+        content: 'test';
+        position: absolute;
+        height: 100%;
+        width: inherit;
+        background: url("../../Media/total_img.jpg") no-repeat center/cover;
+        z-index: -1;
+        filter: brightness(30%);
+
+    }
 }
 
 .content {
