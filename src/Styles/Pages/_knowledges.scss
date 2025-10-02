@@ -1,13 +1,43 @@
-.knowledges {
-    display: flex;
-    min-height: 100vh;
-    // position: relative;
-    // overflow: hidden;
+@import "./Knowledges/experience";
+@import "./Knowledges/hobbies";
+@import "./Knowledges/languages";
+@import "./Knowledges/otherskills";
+@import "./Knowledges/progressbar";
 
-    .knowledgesContent {
-        // max-width: 1200px;
-        margin: 0 auto;
-        // padding: 2rem;
 
+.knowledgesPage {
+  display: flex;
+  min-height: 100vh;
+
+  .sidebar { flex-shrink: 0; }
+
+  .knowledgesContent {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 35% 1fr 1fr;
+    grid-template-rows: 65% 35%;
+    grid-template-areas:
+      "L E E"
+      "O O H";
+    gap: $spacing-md;
+    padding: $spacing-lg;
+
+    @media screen and (max-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "L E"
+        "O H"
+        "E E";
     }
+
+    @media screen and (max-width: 640px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "L"
+        "E"
+        "O"
+        "H";
+    }
+  }
 }

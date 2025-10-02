@@ -1,33 +1,40 @@
 import React from "react";
 
-const ProgressBar = (props) => {
-  return (
-    <div className={props.className}>
-      <h3>{props.title}</h3>
+const ProgressBar = ({ className, title, languages }) => {
+  // Durée max d'expérience
+  const xpYears = 2;
 
+  return (
+    <div className={className}>
+      <h3>{title}</h3>
+
+      {/* Légende des années */}
       <div className="years">
-        <span>Années d'experience</span>
+        <span>Années d'expérience</span>
         <span>1 an</span>
         <span>2 ans</span>
       </div>
-      {/* afficher les informations */}
-      <div className="languagesList">
-        {/* écrir le javaScript dans jsx */}
-        {props.languages.map((item) => {
-          let xpYears = 2;
-          let progressBar = (item.xp / xpYears) * 100 + "%";
 
-          // retourner les valeurs
+      {/* Liste des compétences */}
+      <ul className="languagesList">
+        {languages.map((item) => {
+          // valeur par défaut si xp non défini
+          const xp = item.xp || 1; 
+          const progressBar = (xp / xpYears) * 100 + "%";
+
           return (
-            <div className="languagesList" key={item.id}>
-              <li>{item.value}</li>
-              <div className="progressBar" style={{ width: progressBar }}>
-                {" "}
+            <li key={item.id} className="languageItem">
+              <span className="languageName">{item.value}</span>
+              <div className="progressContainer">
+                <div
+                  className="progressBar"
+                  style={{ width: progressBar }}
+                ></div>
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };

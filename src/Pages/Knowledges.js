@@ -7,17 +7,19 @@ import Navigation from "../Components/Navigation";
 
 const Knowledges = () => {
   return (
-    <div className="knowledges">
-       <Navigation />
-      <div className="knowledgesContent">
+    <div className="knowledgesPage">
+      {/* Navigation reste fixe à gauche sur desktop */}
+      <Navigation />
+
+      {/* Contenu principal */}
+      <main className="knowledgesContent">
         <Languages />
         <Experiences />
         <OtherSkills />
         <Hobbies />
-      </div>
+      </main>
     </div>
   );
 };
 
 export default Knowledges;
- 

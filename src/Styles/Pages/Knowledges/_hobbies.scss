@@ -1,0 +1,66 @@
+@import "./Variables/variables";
+
+
+.hobbies {
+  background-color: $principal_color;
+  min-height: 100vh;
+  padding: $spacing-xl;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  h2 {
+    font-family: $font-secondary;
+    font-size: 2rem;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    color: $text_color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid $second_color;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: $spacing-lg;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1000px;
+  }
+
+  .hobby {
+    background: $second_color;
+    color: $principal_color;
+    padding: $spacing-md;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.1rem;
+    font-weight: $font-weight-bold;
+    transition: transform $transition, background $transition;
+    cursor: default;
+
+    i { font-size: 1.5rem; }
+
+    &:hover {
+      background: lighten($second_color, 10%);
+      transform: translateY(-5px);
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+      padding: $spacing-sm;
+      i { font-size: 1.3rem; }
+    }
+
+    @media screen and (max-width: 480px) {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
