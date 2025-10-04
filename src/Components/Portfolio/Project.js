@@ -1,46 +1,78 @@
 import React, { Component } from "react";
 
 class Project extends Component {
+  // État local pour afficher ou cacher les informations
+  state = {
+    showInformation: false,
+  };
+
+  // Fonction qui inverse l'état d'affichage des informations
+  handleInformation = () => {
+    this.setState((prevState) => ({
+      showInformation: !prevState.showInformation,
+    }));
+  };
+
   render() {
-    const { nom, language, languagesIcons, source, info, picture } =
-      this.props.item;
+    // Déstructuration des props reçues
+    const { name, languagesIcons, source, info, picture } = this.props.item;
 
     return (
       <div className="project">
+        {/* Section des icônes de langages */}
+        <div className="languagesIcons">
+          {languagesIcons.map((iconClass) => (
+            <i className={iconClass} key={iconClass}></i>
+          ))}
+        </div>
+
+        {/* Nom du projet */}
+        <h3>{name}</h3>
+
         {/* Image du projet */}
-        <div className="projectImage">
-          <img src={picture} alt={nom} />
-        </div>
+        <img src={picture} style={{ width: 400 }} alt={name} />
 
-        {/* Contenu du projet */}
-        <div className="projectContent">
-          {/* Nom du projet */}
-          <h3 className="projectTitle">{nom}</h3>
+        {/* Bouton pour afficher les informations */}
+        <span className="infos">
+          <i
+            className="fas fa-plus-circle"
+            onClick={this.handleInformation}
+            style={{ cursor: "pointer" }}
+          ></i>
+        </span>
 
-          {/* Liste des langages */}
-          <div className="projectLanguages">
-            {language.map((lang, index) => (
-              <span key={index} className="language">
-                <i className={languagesIcons[index]}></i> {lang}
-              </span>
-            ))}
+        {/* Affichage conditionnel des informations supplémentaires */}
+        {this.state.showInformation && (
+          <div className="showInformation">
+            <div className="informationContent">
+              <div className="head">
+                <h3>{name}</h3>
+                <div className="sourceCode">
+                  <a
+                    href={source}
+                    rel="noopener noreferrer"
+                    className="button"
+                    target="_blank"
+                  >
+                    Code source
+                  </a>
+                </div>
+              </div>
+
+              {/* Description du projet */}
+              <p className="text">{info}</p>
+
+              {/* Bouton pour revenir à la vue principale */}
+              <div
+                className="button return"
+                onClick={this.handleInformation}
+                style={{ cursor: "pointer" }}
+              >
+                Retourner sur la page
+              </div>
+            </div>
           </div>
-
-          {/* Description */}
-          <p className="projectInfo">{info}</p>
-
-          {/* Lien vers le code source */}
-          <div className="projectLinks">
-            <a
-              href={source}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btnProject"
-            >
-              Voir le code <i className="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
+        )}
       </div>
     );
   }
