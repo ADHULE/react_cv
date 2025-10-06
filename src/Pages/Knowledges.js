@@ -7,7 +7,7 @@ import Navigation from "../Components/Navigation";
 
 const Knowledges = () => {
   return (
-    <div className="knowledgesPage">
+    <div className="knowledges">
       {/* Navigation reste fixe à gauche sur desktop */}
       <Navigation />
 

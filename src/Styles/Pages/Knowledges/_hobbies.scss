@@ -1,66 +1,76 @@
-@import "./Variables/variables";
-
-
 .hobbies {
-  background-color: $principal_color;
-  min-height: 100vh;
-  padding: $spacing-xl;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+    border: 2px solid black;
 
-  h2 {
-    font-family: $font-secondary;
-    font-size: 2rem;
-    margin-bottom: $spacing-lg;
-    text-align: center;
-    color: $text_color;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 3px solid $second_color;
-    display: inline-block;
-    padding-bottom: 0.5rem;
-  }
 
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: $spacing-lg;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: 1000px;
-  }
-
-  .hobby {
-    background: $second_color;
-    color: $principal_color;
-    padding: $spacing-md;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    font-size: 1.1rem;
-    font-weight: $font-weight-bold;
-    transition: transform $transition, background $transition;
-    cursor: default;
-
-    i { font-size: 1.5rem; }
-
-    &:hover {
-      background: lighten($second_color, 10%);
-      transform: translateY(-5px);
+    h2 {
+        text-align: center;
     }
 
-    @media screen and (max-width: 768px) {
-      font-size: 1rem;
-      padding: $spacing-sm;
-      i { font-size: 1.3rem; }
+
+
+    .hobbyContent {
+        border: 2px solid black;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        padding: 5px;
+        flex-wrap: wrap;
+        gap: 20px;
+
+
+
+        .sport,
+        .developpment,
+        .culture {
+            flex: 1;
+            min-width: 280px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+    
+
+        .hobby {
+            list-style: none;
+            background-color: $second_color;
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            color: #444;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            margin-bottom: $spacing-md;
+
+            &:hover{
+
+                background-color: #ffe9d6;
+            }
+
+        }
+
+        
+        .hobby i {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: $second_color;
+            background-color: $principal_color;
+            width: 100px;
+            height: 40px;
+            justify-content: center;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+
     }
 
-    @media screen and (max-width: 480px) {
-      justify-content: center;
-      text-align: center;
-    }
-  }
 }

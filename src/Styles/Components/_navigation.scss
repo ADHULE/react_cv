@@ -3,18 +3,15 @@
 
 .sidebar {
   width: 260px;
-  min-height: 100vh;
   background-color: $principal_color;
   color: $text_color;
-  display: grid;
   flex-direction: column;
   justify-content: space-between;
   padding: $spacing-lg;
 
 
-  
   /*      SECTION PROFIL           */
-  
+ 
   .id {
     text-align: center;
     margin-bottom: $spacing-xl;
@@ -35,7 +32,6 @@
       h3 {
         font-family: $font-secondary;
         font-size: $font-size-large;
-        font-weight: $font-weight-bold;
         margin: 0;
         color: $text_color;
       }
@@ -43,9 +39,9 @@
   }
 
 
-  
+
   /*      NAVIGATION PRINCIPALE    */
-  
+
   .navigation ul {
     list-style: none;
     padding: 0;
@@ -78,9 +74,9 @@
     }
   }
 
-  
+
   /*      RESEAUX SOCIAUX          */
-  
+
   .socialNetwork ul {
     list-style: none;
     display: flex;
@@ -108,9 +104,9 @@
     }
   }
 
-  
+
   /*      SIGNATURE DU CV          */
-  
+ 
   .signature p {
     text-align: center;
     font-size: $font-size-small;
@@ -118,8 +114,9 @@
     margin-top: $spacing-md;
   }
 
-  /*      RESPONSIVITÉ             */
-  
+
+  /*________RESPONSIVITÉ_______________*/
+
 
   @media screen and (max-width: 840px) {
     width: 100%;
@@ -185,7 +182,7 @@
 
   
   /*      MODE COMPACT (≤580px)    */
-
+ 
   @media screen and (max-width: 580px) {
     .navigation ul {
       justify-content: space-between;

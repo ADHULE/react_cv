@@ -2,35 +2,30 @@
 /*      IMPORT DE POLICES         */
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&family=Roboto:wght@400;700&display=swap');
 
-/* ============================= */
-/*     VARIABLES DE STYLE        */
-/* ============================= */
-
-/* Couleurs */
-$principal_color: #0f172a;         // Bleu nuit profond — sérieux, concentration, stabilité
-$second_color: #38bdf8;           // Bleu clair — modernité, technologie, dynamisme
-$text_color: #e2e8f0;             // Gris très clair — lisibilité, confort visuel
-$principal_font_color: #f8fafc;   // Presque blanc — clarté, neutralité
-$second_text_color: #94a3b8;      // Gris bleuté — subtilité, hiérarchie visuelle
+// détermination des différentes couleurs utilisées dans ce programme ou page
+$principal_color: #0f172a;        
+$second_color: #38bdf8;           
+$text_color: #e2e8f0;             
+$principal_font_color: #f8fafc;   
+$second_text_color: #94a3b8;      
 $accent_color: #007BFF;
 $notfound_color:rgba(224, 13, 13, 0.664);
 $success_color:#28a745;
-
-$primary-color: #3f72af; // Un bleu/indigo élégant
-$secondary-color: #dbe2ef; // Un bleu très clair pour les fonds
-
-$text-dark: #112a46; // Texte foncé
-$text-light: #ffffff; // Texte clair
-$background-color: #f5f5f5; // Fond de page
+$primary-color: #3f72af; 
+$secondary-color: #dbe2ef;
+$text-dark: #112a46;
+$text-light: #ffffff;
+$background-color: #f5f5f5; 
 
 /* Polices */
-$font-primary: 'Roboto', sans-serif;       // Texte général
-$font-secondary: 'Nova Round', cursive;   // Titres / nom
-$font-size-base: 16px;                     // Taille par défaut
-$font-size-small: 0.9rem;                  // Texte secondaire
-$font-size-large: 1.5rem;                  // Titres
+$font-primary: 'Roboto', sans-serif;       
+$font-secondary: 'Nova Round', cursive;   
+$font-size-base: 16px;                     
+$font-size-small: 0.9rem;                 
+$font-size-large: 1.5rem;       
 $font-weight-normal: 400;
 $font-weight-bold: 700;
+
 
 /* Espacements */
 $spacing-xs: 4px;
@@ -38,49 +33,5 @@ $spacing-sm: 8px;
 $spacing-md: 16px;
 $spacing-lg: 24px;
 $spacing-xl: 40px;
+$min-height:100vh; //hauteur de la page
 
-/* ============================= */
-/*       STYLES GLOBAUX          */
-/* ============================= */
-
-body {
-  font-family: $font-primary;
-  font-size: $font-size-base;
-  margin: 0;
-  padding: 0;
-  background-color: $principal_font_color;
-  color: $principal_color;
-  line-height: 1.6;
-  
-}
-
-
-/* ============================= */
-/*   LAYOUT GLOBAL EN FLEX        */
-/* ============================= */
-
-/* Liens globaux */
-a {
-  text-decoration: none;
-  color: $second_color;
-
-  &:hover {
-    color: $principal_color;
-  }
-}
-
-/* Titres */
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-secondary;
-  font-weight: $font-weight-bold;
-  margin: 0;
-  color: $principal_color;
-}
-
-/* Paragraphes */
-p {
-  font-family: $font-primary;
-  font-size: $font-size-base;
-  color: $principal_color;
-  margin-bottom: $spacing-md;
-}

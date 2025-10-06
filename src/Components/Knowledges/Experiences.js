@@ -1,10 +1,11 @@
 import React from "react";
 
+
 const Experiences = () => {
   return (
     <div className="experience">
-      <div className="experienceContent">
         <h2>Expériences</h2>
+      <div className="experienceContent">
         <div className="exp-1">
           <h3>
             Développer une application desktop à l'Université Officielle de

@@ -1,52 +1,65 @@
-@import "./Variables/variables";
-
-
 .otherSkills {
-  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
-  padding: 2rem;
-  border-radius: 20px;
-  margin: 2rem auto;
-  // max-width: 900px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+    border: 2px solid black;
 
-  h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-
-  .skillsList {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        font-size: 1rem;
-        color: #333;
-        padding: 0.8rem 1rem;
-        margin-bottom: 0.8rem;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0px 3px 8px rgba(0,0,0,0.08);
+    .skillsList {
+        border: 2px solid black;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        padding: 5px;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style: none;
+        background-color: $second_color;
+        margin: 10px 0;
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-size: 1.1em;
+        color: #444;
         display: flex;
         align-items: center;
-        gap: 0.6rem;
-        transition: transform $transition, box-shadow $transition;
-
-        i { color: #0077ff; font-size: 1.2rem; }
+        transition: background-color 0.3s ease;
+        margin-bottom: $spacing-md;
 
         &:hover {
-          transform: translateY(-3px);
-          box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+
+            background-color: #ffe9d6;
         }
-      }
+        ul li {
+            list-style: none;
+        }
+
+        .left,
+        .right {
+            display: flex;
+            flex: 1;
+            min-width: 280px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+        }
     }
-  }
+
+    .skillsList i {
+        margin-right: 10px;
+        font-size: 1.2em;
+        color: $second_color;
+        background-color: $principal_color;
+        width: 100px;
+        height: 40px;
+        justify-content: center;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+
+    h2 {
+        text-align: center;
+    }
 }

@@ -1,236 +1,91 @@
-.home {
-    display: flex;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    // background: linear-gradient(115deg, $accent_color 10%, transparent 100%);
-    
-    
-    /* Effet : Pseudo-élément pour un effet visuel en fond (comme des cercles ou des formes) */
-    &::before {
-        content: '';
-        position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 120%;
-        height: 120%;
-        background: radial-gradient(circle at top left, rgba($accent_color, 0.1) 0%, transparent 50%);
-
-        z-index: 1;
-        /* Reste sous le contenu */
-        animation: subtleRotate 60s linear infinite;
-        /* Animation de rotation subtile */
-    }
-}
-
 .homeContent {
-    flex: 1;
+  background-color: $principal_color;
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+  border-radius: 8px;
+
+  &:hover {
+    box-shadow: 0 10px 0 20px rgba(233, 227, 227, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .content {
+    background-color: $principal_color;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 6px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    z-index: 2;
-    /* S'assure que le contenu est au-dessus du pseudo-élément */
-    &:after{
-        content: 'test';
-        position: absolute;
-        height: 100%;
-        width: inherit;
-        background: url("../../Media/total_img.jpg") no-repeat center/cover;
-        z-index: -1;
-        filter: brightness(30%);
+    flex-direction: column;
+    gap: 1rem;
 
-    }
-}
-
-.content {
-    text-align: center;
-    width: 90%;
-    max-width: 1000px;
-    height: auto;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.5s ease;
-
-    &:hover {
-        /* Effet de brillance subtile et léger soulèvement */
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 15px $accent_color;
-    }
-}
-
-
-/* TYPOGRAPHIE ET TITRES */
-
-/* H1 et H2 */
-.content {
-    h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        /* Taille réactive */
-        margin-bottom: 0.2rem;
-        color: white;
-        /* Titres blancs pour contraster avec le fond sombre */
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-
-        span {
-            color: $accent_color;
-        }
+    header h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: $text_color;
+      animation: fadeIn 0.6s ease-in;
     }
 
-    h2 {
-        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-        font-weight: 400;
-        margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.8);
-    }
-}
+    .childrenContent {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
 
-/* H3 (Titre de section) */
-.childrenContent h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: white;
+      h3 {
+        color: aqua;
+        text-align: left;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
 
-    /* Changé à blanc pour la cohérence sur fond sombre */
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid $accent_color;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-/* SPAN (Mots clés, Slogan) */
-.childrenContent h3 span {
-    color: $success_color;
-    /* Utilisé une variable pour le vert */
-    font-weight: 900;
-    font-style: italic;
-    transition: color 0.3s ease;
-}
-
-.name-bold {
-    font-weight: 900;
-    color: $accent_color;
-}
-
-
-
-/* PARAGRAPHES ET CONTENU */
-
-/* Paragraphes généraux */
-.childrenContent p,
-.cta-text,
-.hook {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    /* Texte blanc/clair pour le contraste */
-    margin-bottom: 20px;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-}
-
-/* Paragraphe d'impact */
-.impact-statement {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: $accent_color;
-    /* Couleur d'accent pour le texte d'impact */
-    padding: 15px;
-    border-left: 5px solid $accent_color;
-    background-color: rgba(0, 0, 0, 0.2);
-    /* Fond sombre et subtil */
-    border-radius: 0 8px 8px 0;
-}
-
-/* Mise en gras dans les paragraphes */
-.childrenContent p strong {
-    color: $success_color;
-    font-weight: 700;
-}
-
-
-
-/* BLOCS ENFANTS (left/right) */
-.childrenContent {
-    display: flex;
-    flex-wrap: wrap;
-    /* Pour la réactivité */
-    margin-bottom: 30px;
-
-    .left,
-    .right {
-        width: 50%;
-        padding: 20px;
-        margin: 0;
-        border: none;
-
-        transition: transform 0.4s ease;
+      .left,
+      .right {
+        flex: 1 1 45%;
+        padding: 1rem;
+        background-color: lighten($second_color, 5%);
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
 
         &:hover {
-            transform: scale(1.02);
+          background-color: lighten($second_color, 10%);
         }
+      }
     }
-}
 
-/* Pour la réactivité sur les petits écrans */
-@media (max-width: 768px) {
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: darken($text_color, 20%);
+      padding-top: 1rem;
+    }
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
     .childrenContent {
-        flex-direction: column;
+      flex-direction: column;
 
-        .left,
-        .right {
-            width: 100%;
-            margin: 10px 0;
-        }
+      .left,
+      .right {
+        flex: 1 1 100%;
+      }
     }
 
-    .content {
-        padding: 1.5rem;
+    header h1 {
+      font-size: 1.5rem;
     }
-}
+  }
 
-
-/* BOUTON DE TÉLÉCHARGEMENT (CTA) */
-.download-btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: $accent_color;
-    color: white;
-    border-radius: 50px;
-    /* Forme de pilule pour le moderne */
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid $accent_color;
-    /* Bordure pour l'effet hover */
-    box-shadow: 0 4px 15px rgba($accent_color, 0.4);
-
-    &:hover {
-        background-color: white;
-        /* Inversion des couleurs au hover */
-        color: $accent_color;
-        box-shadow: 0 6px 20px rgba($accent_color, 0.6);
-        transform: translateY(-2px);
-        /* Léger soulèvement */
-    }
-}
-
-
-
-/* ANIMATIONS GLOBALES */
-
-@keyframes subtleRotate {
+  // Animation
+  @keyframes fadeIn {
     from {
-        transform: rotate(0deg);
+      opacity: 0;
+      transform: translateY(-10px);
     }
-
     to {
-        transform: rotate(360deg);
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 }

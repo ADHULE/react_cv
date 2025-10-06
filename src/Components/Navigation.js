@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"; //la fonction pour naviguer entres les différentes pages 
 
 const Navigation = () => {
   return (
@@ -7,7 +7,9 @@ const Navigation = () => {
       {/* Section profil */}
       <div className="id">
         <div className="idcontent">
-          <img src="./Media/my.jpg" alt="profil-pic" />
+        
+          <img src="./Media/logo.jpg" alt="" />
+
           <h3>ADHULE Jean</h3>
         </div>
       </div>
