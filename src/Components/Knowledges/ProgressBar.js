@@ -1,39 +1,54 @@
 import React from "react";
-
-const ProgressBar = ({ className, title, languages }) => {
-  // Durée max d'expérience
-  const xpYears = 2;
-
+// la fonction qui restourne un barre de progression qui est utliser dans l'affiche des langages et FrameWroks
+const ProgressBar = ({ items, title }) => {
+  // une fonction pour retourner la longueur d'une barre de progression
+  const getWidth = (level) => {
+    switch (level) {
+      case "Avancé":
+        return "75%";
+      case "Intermédiaire":
+        return "50%";
+      case "Débutant":
+        return "25%";
+      default:
+        return "0%";
+    }
+  };
+  // une fonction pour restourner les vouleurs selon le pourcentage
+  const getColor = (level) => {
+    switch (level) {
+      case "Avancé":
+        return "#4caf50";
+      case "Intermédiaire":
+        return "#2196f3";
+      case "Débutant":
+        return "#ff9800";
+      default:
+        return "#ccc";
+    }
+  };
+  // le corps jsx pour afficher les informations
   return (
-    <div className={className}>
+    <div className="progressBar">
       <h3>{title}</h3>
-
-      {/* Légende des années */}
-      <div className="years">
-        <span>Années d'expérience</span>
-        <span>1 an</span>
-        <span>2 ans</span>
-      </div>
-
-      {/* Liste des compétences */}
-      <ul className="languagesList">
-        {languages.map((item) => {
-          // valeur par défaut si xp non défini
-          const xp = item.xp || 1; 
-          const progressBar = (xp / xpYears) * 100 + "%";
-
-          return (
-            <li key={item.id} className="languageItem">
-              <span className="languageName">{item.value}</span>
-              <div className="progressContainer">
-                <div
-                  className="progressBar"
-                  style={{ width: progressBar }}
-                ></div>
-              </div>
-            </li>
-          );
-        })}
+      <ul>
+        {items.map((item) => (
+          <li key={item.id} className="progressItem">
+            <div className="labelRow">
+              <span className="label">{item.value}</span>
+              <span className="level">{item.level}</span>
+            </div>
+            <div className="bar">
+              <div
+                className="fill"
+                style={{
+                  width: getWidth(item.level),
+                  backgroundColor: getColor(item.level),
+                }}
+              ></div>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );

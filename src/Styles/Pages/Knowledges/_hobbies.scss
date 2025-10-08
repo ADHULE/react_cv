@@ -1,5 +1,5 @@
 .hobbies {
-    border: 2px solid black;
+    
 
 
     h2 {
@@ -9,7 +9,7 @@
 
 
     .hobbyContent {
-        border: 2px solid black;
+        
         display: flex;
         justify-content: space-between;
         margin: 10px;
@@ -39,7 +39,7 @@
 
         .hobby {
             list-style: none;
-            background-color: $second_color;
+            // background-color: $second_color;
             margin: 10px 0;
             padding: 12px 15px;
             border-radius: 8px;

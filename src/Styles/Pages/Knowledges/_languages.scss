@@ -1,0 +1,23 @@
+
+.languages{
+    
+    h2{
+        text-align: center;
+     
+    }
+
+    .content{
+        display: flex;
+     
+        justify-content:space-between;
+        .languagesSection, .frameworksSection{
+            width: 50%;
+            margin: 5px ;
+            padding: auto;
+    
+           &:hover{
+            background-color: $principal_color;
+           }
+        }
+    }
+}

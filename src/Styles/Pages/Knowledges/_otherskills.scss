@@ -1,16 +1,13 @@
 .otherSkills {
-    border: 2px solid black;
+   
 
     .skillsList {
-        border: 2px solid black;
+       
         display: flex;
         justify-content: space-between;
-        margin: 10px;
-        padding: 5px;
-        flex-wrap: wrap;
         gap: 20px;
         list-style: none;
-        background-color: $second_color;
+        // background-color: $second_color;
         margin: 10px 0;
         padding: 12px 15px;
         border-radius: 8px;
@@ -33,7 +30,6 @@
         .right {
             display: flex;
             flex: 1;
-            min-width: 280px;
             background-color: #ffffff;
             border-radius: 10px;
             padding: 10px;
