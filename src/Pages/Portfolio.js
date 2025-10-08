@@ -8,14 +8,15 @@ const Portfolio = () => {
       <Navigation />
       
         <div className="content">
-          <h1>Portfolio</h1>
 
         <ProjectList/>
+         
 
         </div>
       </div>
    
   );
 };
+
 
 export default Portfolio;

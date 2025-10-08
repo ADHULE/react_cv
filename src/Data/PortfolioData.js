@@ -2,7 +2,7 @@ export const PortfolioData = [
   {
     id: 1,
     name: "Portfolio Personnel",
-    language: ["React", "SCSS", "HTML", "CSS"],
+    languages: ["React", "SCSS", "HTML", "CSS"],
     languagesIcons: ["fab fa-react", "fab fa-sass", "fab fa-html5", "fab fa-css3-alt"],
     source: "https://github.com/AdhuleJean/portfolio",
     info: "Un site web personnel moderne permettant de présenter mes compétences, projets et expériences professionnelles.",
@@ -11,7 +11,7 @@ export const PortfolioData = [
   {
     id: 2,
     name: "Application de Gestion de Tâches",
-    language: ["JavaScript", "Node.js", "MongoDB", "Bootstrap"],
+    languages: ["JavaScript", "Node.js", "MongoDB", "Bootstrap"],
     languagesIcons: ["fab fa-js", "fab fa-node", "fas fa-database", "fab fa-bootstrap"],
     source: "https://github.com/AdhuleJean/todo-app",
     info: "Application web full-stack permettant la gestion des tâches avec authentification utilisateur et base de données MongoDB.",
@@ -20,7 +20,7 @@ export const PortfolioData = [
   {
     id: 3,
     name: "Détecteur d'Alcool avec Arduino",
-    language: ["C++", "Python"],
+    languages: ["C++", "Python"],
     languagesIcons: ["fab fa-python", "fas fa-microchip"],
     source: "https://github.com/AdhuleJean/alcohol-detector",
     info: "Projet IoT intégrant Arduino et un capteur MQ3, avec affichage des résultats sur une interface Python (PySide6).",
@@ -29,7 +29,7 @@ export const PortfolioData = [
   {
     id: 4,
     name: "Application Mobile de Reconnaissance Faciale",
-    language: ["Dart", "Flutter", "Python"],
+    languages: ["Dart", "Flutter", "Python"],
     languagesIcons: ["fab fa-android", "fab fa-python", "fas fa-robot"],
     source: "https://github.com/AdhuleJean/face-recognition",
     info: "Application mobile Flutter connectée à une API Python/InsightFace pour la reconnaissance faciale et la sécurité.",
@@ -38,7 +38,7 @@ export const PortfolioData = [
   {
     id: 5,
     name: "Blog Technique avec Symfony",
-    language: ["PHP", "Symfony", "MySQL", "jQuery"],
+    languages: ["PHP", "Symfony", "MySQL", "jQuery"],
     languagesIcons: ["fab fa-php", "fas fa-database", "fab fa-symfony", "fas fa-code"],
     source: "https://github.com/AdhuleJean/blog-symfony",
     info: "Un blog technique développé avec Symfony, gestion d’articles, commentaires et tableau d’administration.",
@@ -47,7 +47,7 @@ export const PortfolioData = [
   {
     id: 6,
     name: "Tableau de Bord Analytique",
-    language: ["JavaScript", "React", "Bootstrap", "CSS"],
+    languages: ["JavaScript", "React", "Bootstrap", "CSS"],
     languagesIcons: ["fab fa-js", "fab fa-react", "fab fa-bootstrap", "fab fa-css3-alt"],
     source: "https://github.com/AdhuleJean/dashboard-analytics",
     info: "Dashboard interactif avec graphiques, filtres et intégration d'API REST pour l’analyse des données.",
@@ -56,7 +56,7 @@ export const PortfolioData = [
   {
     id: 7,
     name: "Site de E-commerce",
-    language: ["PHP", "MySQL", "Bootstrap", "jQuery"],
+    languages: ["PHP", "MySQL", "Bootstrap", "jQuery"],
     languagesIcons: ["fab fa-php", "fas fa-database", "fab fa-bootstrap", "fas fa-code"],
     source: "https://github.com/AdhuleJean/ecommerce-site",
     info: "Site e-commerce complet avec panier d’achats, gestion des utilisateurs et paiement en ligne simulé.",
@@ -65,7 +65,7 @@ export const PortfolioData = [
   {
     id: 8,
     name: "Simulateur de Capteurs IoT",
-    language: ["Python", "React", "Node.js"],
+    languages: ["Python", "React", "Node.js"],
     languagesIcons: ["fab fa-python", "fab fa-react", "fab fa-node"],
     source: "https://github.com/AdhuleJean/iot-simulator",
     info: "Application simulant des capteurs IoT et affichant les données en temps réel sur une interface React.",

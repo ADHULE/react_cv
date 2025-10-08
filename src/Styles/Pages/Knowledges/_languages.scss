@@ -14,9 +14,10 @@
             width: 50%;
             margin: 5px ;
             padding: auto;
+            border-radius: 15px;
     
            &:hover{
-            background-color: $principal_color;
+            box-shadow: 0 10px 0 10px black;
            }
         }
     }

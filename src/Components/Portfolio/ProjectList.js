@@ -5,7 +5,7 @@ import Project from "./Project";
 class ProjectList extends Component {
   state = {
     projects: PortfolioData,
-    radio: [
+    radios: [
       { id: 1, value: "JavaScript" },
       { id: 2, value: "Python" },
       { id: 3, value: "PHP" },
@@ -14,41 +14,50 @@ class ProjectList extends Component {
     selectedRadio: "JavaScript",
   };
 
-  render() {
-    const handleRadio = (event) => {
-      let radio=event.target.value;
-      this.setState({selectedRadio:radio})
-    };
+  handleRadioChange = (event) => {
+    this.setState({ selectedRadio: event.target.value });
+  };
 
-    const { projects, radio, selectedRadio } = this.state;
+  render() {
+    const { projects, radios, selectedRadio } = this.state;
+
+    //  Filtrer les projets selon la catégorie sélectionnée
+    const filteredProjects = projects.filter((project) =>
+      project.languages.includes(selectedRadio)
+    );
 
     return (
       <div className="portfolioContent">
-        {/* Ici tu pourras ajouter les filtres radio plus tard */}
+        {/*  Filtres Radio */}
         <ul className="radioDisplay">
-          {/*afficher les langages en tete avec des boutons radios afin de naviguer ou sélectionner un des ces langages  */}
-
-          {radio.map((radio) => {
-            return (
-              <li key={radio.id}>
-                <input
-                  type="radio"
-                  name="radio"
-                  checked={radio.value === selectedRadio}
-                  value={radio.value}
-                  id={radio.value}
-                  onChange={this.handleRadio}
-                ></input>
-                <label htmlFor={radio.value}>{radio.value}</label>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="projects">
-          {projects.map((item) => (
-            <Project key={item.id} item={item} />
+          {radios.map((radio) => (
+            <li key={radio.id} className="radioItem">
+              <input
+                type="radio"
+                name="languageRadio"
+                value={radio.value}
+                id={radio.value}
+                checked={radio.value === selectedRadio}
+                onChange={this.handleRadioChange}
+                className="radioButton"
+              />
+              <label htmlFor={radio.value}>{radio.value}</label>
+            </li>
           ))}
+        </ul>
+        <h2>Mes Projets</h2>
+
+        {/*  Liste des projets */}
+        <div className="projects">
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((item) => (
+              <Project key={item.id} item={item} />
+            ))
+          ) : (
+            <p className="noProject">
+              Aucun projet trouvé pour cette catégorie.
+            </p>
+          )}
         </div>
       </div>
     );
