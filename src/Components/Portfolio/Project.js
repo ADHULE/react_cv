@@ -30,7 +30,7 @@ class Project extends Component {
         <h3>{name}</h3>
 
         {/* Image du projet */}
-        <img src={picture} style={{ width: 400 }} alt={name} />
+        <img src={picture}  onClick={this.handleInformation} style={{ width: 400 }} alt={name} />
 
         {/* Bouton pour afficher les informations */}
         <span className="infos">

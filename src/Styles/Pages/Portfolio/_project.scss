@@ -1,0 +1,156 @@
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-content .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content .text {
+  margin-top: 20px;
+}
+
+.modal-content .button.return {
+  margin-top: 30px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+
+
+// .project {
+ 
+//   margin: 20px;
+//   padding: 20px;
+//   border: 1px solid #ccc;
+//   position: relative; // Important si vous avez besoin de positionner des éléments enfants
+
+//   // Style de l'icône 'plus'
+//   .infos {
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//     i {
+//       font-size: 1.5rem;
+//       color: #333;
+//       cursor: pointer;
+//       transition: color 0.2s;
+//       &:hover {
+//         color: crimson; // Exemple d'effet au survol
+//       }
+//     }
+//   }
+
+  // --------------------------------------------------
+  // Styles de la Boîte de Dialogue Modale
+  // --------------------------------------------------
+  .showInformation {
+    // 1. Positionnement pour couvrir tout l'écran
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); // Fond semi-transparent
+    z-index: 100; // Assure que la modale est au-dessus de tout
+    
+    // Centrage du contenu
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // 2. Conteneur principal de la boîte de dialogue
+    .informationContent {
+      background: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 700px; // Taille maximale pour le confort de lecture
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      
+      // Animation d'apparition
+      transform: scale(0.8);
+      opacity: 0;
+      animation: modalEnter 0.3s forwards ease-out;
+
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h3 {
+          margin: 0;
+          color: #2a6496; // Couleur d'accent
+        }
+
+        .sourceCode {
+          .button {
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+            &:hover {
+              background-color: #2980b9;
+            }
+          }
+        }
+      }
+
+      .text {
+        line-height: 1.6;
+        margin-bottom: 30px;
+        display: flex;
+      }
+
+      .return {
+        // Style du bouton de retour/fermeture
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: crimson; // Couleur pour un bouton de fermeture
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        &:hover {
+          background-color: darkred;
+        }
+      }
+    }
+  }
+
+
+// Keyframes pour l'animation d'apparition
+@keyframes modalEnter {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

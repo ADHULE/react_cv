@@ -6,7 +6,7 @@ export const PortfolioData = [
     languagesIcons: ["fab fa-react", "fab fa-sass", "fab fa-html5", "fab fa-css3-alt"],
     source: "https://github.com/AdhuleJean/portfolio",
     info: "Un site web personnel moderne permettant de présenter mes compétences, projets et expériences professionnelles.",
-    picture: "./Media/portfolio.png",
+    picture: "../Media/total_img.jpg",
   },
   {
     id: 2,
