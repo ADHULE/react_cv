@@ -20,6 +20,7 @@ const Knowledges = () => {
       </main>
     </div>
   );
+  
 };
 
 export default Knowledges;

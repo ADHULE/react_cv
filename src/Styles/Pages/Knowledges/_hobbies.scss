@@ -1,76 +1,99 @@
 .hobbies {
-    
+  padding: 2rem;
 
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: $principal_color;
+  }
 
-    h2 {
-        text-align: center;
+  .hobbyContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+
+    .sport,
+    .developpment,
+    .culture {
+      flex: 1 1 280px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
     }
 
+    .hobby {
+      list-style: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      color: #444;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
 
+      &:hover {
+        background-color: $principal_color;
+        color: white;
+        font-size: 1.25rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transform: translateX(3px);
+      }
 
-    .hobbyContent {
-        
+      i {
+        margin-right: 12px;
+        font-size: 1.3rem;
+        color: $second_color;
+        background-color: $principal_color;
+        width: 50px;
+        height: 50px;
         display: flex;
-        justify-content: space-between;
-        margin: 10px;
-        padding: 5px;
-        flex-wrap: wrap;
-        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 50%;
+        transition: transform 0.3s ease, background-color 0.3s ease;
 
-
-
-        .sport,
-        .developpment,
-        .culture {
-            flex: 1;
-            min-width: 280px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-
-            &:hover {
-                transform: translateY(-5px);
-            }
+        &:hover {
+          transform: scale(1.2);
+          background-color: $second_color;
+          color: $principal_color;
         }
-
-    
-
-        .hobby {
-            list-style: none;
-            // background-color: $second_color;
-            margin: 10px 0;
-            padding: 12px 15px;
-            border-radius: 8px;
-            font-size: 1.1em;
-            color: #444;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s ease;
-            margin-bottom: $spacing-md;
-
-            &:hover{
-
-                background-color: #ffe9d6;
-            }
-
-        }
-
-        
-        .hobby i {
-            margin-right: 10px;
-            font-size: 1.2em;
-            color: $second_color;
-            background-color: $principal_color;
-            width: 100px;
-            height: 40px;
-            justify-content: center;
-            text-align: center;
-            border-radius: 50%;
-        }
-
-
+      }
     }
+  }
 
+  /* Responsive */
+  @media screen and (max-width: 850px) {
+    .hobbyContent {
+      flex-direction: column;
+      gap: 1rem;
+
+      .sport,
+      .developpment,
+      .culture {
+        width: 100%;
+      }
+
+      .hobby {
+        justify-content: flex-start;
+
+        i {
+          width: 40px;
+          height: 40px;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
 }

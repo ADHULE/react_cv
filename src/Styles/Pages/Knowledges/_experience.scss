@@ -1,84 +1,118 @@
 .experience {
+  padding: 2rem;
 
-    // background-color: aquamarine;
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    color: $principal_color;
+  }
+
+  .experienceContent {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+
+    .experienceCard {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        border: 1px solid $second_color;
+      }
+
+      .experienceHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin: 0;
+          text-transform: capitalize;
+          color: $principal_color;
+        }
+
+        .annee {
+          font-size: 1rem;
+          opacity: 0.75;
+          font-style: italic;
+          color: $secondary_color;
+        }
+      }
+
+      .lieu {
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 0.8rem;
+        color: rgba(0, 0, 0, 0.7);
+      }
+
+      .description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: justify;
+        color: $text_color;
+      }
+    }
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 1024px) {
+    .experienceContent {
+      gap: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
 
     h2 {
-        text-align: center;
-      
-        margin-bottom: 2rem;
-        font-weight: 700;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-        padding-bottom: 0.5rem;
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
     }
 
+    .experienceCard {
+      padding: 1rem;
+
+      .experienceHeader h3 {
+        font-size: 1.1rem;
+      }
+
+      .annee {
+        font-size: 0.9rem;
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
     .experienceContent {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.8rem;
-        justify-content: center;
-
-        .experienceCard {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(3px);
-            border-radius: 5px;
-            padding: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            &:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            }
-        }
-
-        .experienceHeader {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-
-            h3 {
-                font-size: 1.2rem;
-                font-weight: 600;
-                margin: 0;
-                text-transform: capitalize;
-            }
-
-            .annee {
-                font-size: 0.95rem;
-                opacity: 0.8;
-                font-style: italic;
-            }
-        }
-
-        .lieu {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 0.6rem;
-            color: rgba(0, 0, 0, 0.8);
-        }
-
-        .description {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            text-align: justify;
-        }
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
-    /* Responsive */
-    @media screen and (max-width: 768px) {
-        padding: 1rem;
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .experienceCard {
-            padding: 1rem;
-        }
+    .experienceCard {
+      padding: 0.8rem;
     }
+  }
 }

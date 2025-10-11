@@ -10,7 +10,7 @@ body {
     font-size: $font-size-base;
     margin: 0;
     padding: 0;
-    background-color: $principal_font_color;
+    background-color: $background_color;
     color: $principal_color;
     line-height: 1.6;
 
@@ -69,6 +69,19 @@ p {
     //  padding: 8px;
 }
 
+.experienceContent,
+.hobbyContent,
+.skillsList {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-radius: 8px;
+
+}
+
 
 // reponsive
 @media screen and (max-width: 850px) {
@@ -85,7 +98,7 @@ p {
         justify-content: flex-start;
         min-height: $min-height;
         padding: 1.5rem;
-        width: 100%;
+     
         box-sizing: border-box;
         text-align: center;
         gap: 1.5rem; // espace entre les éléments

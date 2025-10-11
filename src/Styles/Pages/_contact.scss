@@ -1,146 +1,192 @@
 .contact {
-    padding: 2rem;
-    background-color: #f9f9f9;
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
+  background-color: #f9fafc;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+ 
+  
+  .contactContent {
+    // border: 1px solid black;
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
 
-    .contactContent {
-        background: url('../../Media/total_img.jpg') no-repeat center top/cover;
-        // max-width: 900px;
-        width: 100%;
-        margin: 0 auto;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
+    // header designer
+    .header {
+      height: 420px;
+      position: relative;
+      background: url('../../Media/logo.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
 
-        .header {
-            height: 500px;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1;
+      }
 
-            background-image: url('../../Media/logo.jpg '); // remplace par ton chemin d'image
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+      h1 {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        font-size: 2.3rem;
+        font-weight: 700;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+        animation: textReveal 1s ease-in-out;
+      }
 
-            &::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.4); // superposition sombre
-                z-index: 1;
-            }
-
-            &::after {
-                content: 'Contactez-moi';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: #fff;
-                font-size: 2rem;
-                font-weight: bold;
-                z-index: 2;
-                text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-                animation: fadeIn 1.5s ease-in-out;
-            }
-
-            &:hover{
-                box-shadow: 0 0 0 1px $second_color;
-            }
-        }
-
-        // Animation douce
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-
-        .contactBox {
-            h1 {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-                text-align: center;
-                color: #0077b6;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-
-                li {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 1rem;
-                    font-size: 1.1rem;
-
-                    i {
-                        margin-right: 0.8rem;
-                        color: #0077b6;
-                        font-size: 1.3rem;
-                    }
-
-                    .clikInput {
-                        cursor: pointer;
-                        color: #023e8a;
-                        transition: color 0.3s;
-
-                        &:hover {
-                            color: #0096c7;
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-        }
-
-        .socialNetwork {
-            margin-top: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-
-            a {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-decoration: none;
-                background: #e0f7fa;
-                padding: 1rem;
-                border-radius: 8px;
-                transition: background 0.3s;
-
-                h4 {
-                    margin: 0.5rem 0;
-                    font-size: 1rem;
-                    color: #0077b6;
-                }
-
-                i {
-                    font-size: 1.8rem;
-                    color: #0077b6;
-                }
-
-                &:hover {
-                    background: #b2ebf2;
-
-                    i,
-                    h4 {
-                        color: #005f73;
-                    }
-                }
-            }
-        }
+      &:hover {
+        box-shadow: 0 0 0 2px $second_color;
+        transform: scale(1.01);
+        transition: all 0.3s ease;
+      }
     }
+
+    // info designer
+    .contactBox {
+      padding: 2rem 3rem;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #0077b6;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+          background: #f1f5f9;
+          padding: 0.8rem 1rem;
+          border-radius: 8px;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: #e0f2fe;
+          }
+
+          i {
+            margin-right: 0.8rem;
+            color: #0077b6;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+          }
+
+          .clikInput {
+            cursor: pointer;
+            color: #023e8a;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #0096c7;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+// designer sicial network
+    .socialNetwork {
+      margin: 2.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.2rem;
+      padding: 0 2rem 2rem;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #edf6f9;
+        border-radius: 12px;
+        padding: 1rem;
+        text-decoration: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+
+        i {
+          font-size: 2rem;
+          color: #0077b6;
+          margin-bottom: 0.5rem;
+        }
+
+        h4 {
+          font-size: 1rem;
+          color: #0077b6;
+        }
+
+        &:hover {
+          background: $second_color;
+          transform: translateY(-4px);
+
+          i,
+          h4 {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+//  les animations
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes textReveal {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+//  responsive designer
+  @media screen and (max-width: 768px) {
+    .contactContent {
+      border-radius: 10px;
+      padding: 1rem;
+
+      .contactBox {
+        padding: 1rem;
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        li {
+          font-size: 1rem;
+        }
+      }
+
+      .socialNetwork {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+    }
+  }
 }

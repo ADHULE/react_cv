@@ -1,24 +1,25 @@
+.languages {
 
-.languages{
-    
-    h2{
+    h2 {
         text-align: center;
-     
+
     }
 
-    .content{
+    .content {
         display: flex;
-     
-        justify-content:space-between;
-        .languagesSection, .frameworksSection{
+
+        justify-content: space-between;
+
+        .languagesSection,
+        .frameworksSection {
             width: 50%;
-            margin: 5px ;
-            padding: auto;
+            margin: 10px;
+            padding: 5px;
             border-radius: 15px;
-    
-           &:hover{
-            box-shadow: 0 10px 0 10px black;
-           }
+
+            &:hover {
+                box-shadow: 0 5px 0 5px $principal_color;
+            }
         }
     }
 }

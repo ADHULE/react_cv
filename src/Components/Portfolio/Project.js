@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 
 class Project extends Component {
-  // État local pour afficher ou cacher les informations
   state = {
     showInformation: false,
   };
 
-  // Fonction qui inverse l'état d'affichage des informations
   handleInformation = () => {
     this.setState((prevState) => ({
       showInformation: !prevState.showInformation,
@@ -14,12 +12,11 @@ class Project extends Component {
   };
 
   render() {
-    // Déstructuration des props reçues
     const { name, languagesIcons, source, info, picture } = this.props.item;
 
     return (
       <div className="project">
-        {/* Section des icônes de langages */}
+        {/* Icônes des langages */}
         <div className="languagesIcons">
           {languagesIcons.map((iconClass) => (
             <i className={iconClass} key={iconClass}></i>
@@ -29,10 +26,16 @@ class Project extends Component {
         {/* Nom du projet */}
         <h3>{name}</h3>
 
-        {/* Image du projet */}
-        <img src={picture}  onClick={this.handleInformation} style={{ width: 400 }} alt={name} />
+        {/* Image cliquable */}
+        <img
+          src={picture}
+          onClick={this.handleInformation}
+          alt={name}
+          title={name}
+          style={{ width: "100%", maxWidth: "400px", cursor: "pointer" }}
+        />
 
-        {/* Bouton pour afficher les informations */}
+        {/* Bouton pour afficher les infos */}
         <span className="infos">
           <i
             className="fas fa-plus-circle"
@@ -41,7 +44,7 @@ class Project extends Component {
           ></i>
         </span>
 
-        {/* Affichage conditionnel des informations supplémentaires */}
+        {/* Informations supplémentaires */}
         {this.state.showInformation && (
           <div className="showInformation">
             <div className="informationContent">
@@ -50,19 +53,17 @@ class Project extends Component {
                 <div className="sourceCode">
                   <a
                     href={source}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="button"
-                    target="_blank"
                   >
                     Code source
                   </a>
                 </div>
               </div>
 
-              {/* Description du projet */}
               <p className="text">{info}</p>
 
-              {/* Bouton pour revenir à la vue principale */}
               <div
                 className="button return"
                 onClick={this.handleInformation}
@@ -79,4 +80,3 @@ class Project extends Component {
 }
 
 export default Project;
-

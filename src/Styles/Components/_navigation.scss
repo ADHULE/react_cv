@@ -1,17 +1,15 @@
-
-/*      SIDEBAR PRINCIPAL        */
-
 .sidebar {
   width: 260px;
   background-color: $principal_color;
   color: $text_color;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: $spacing-lg;
+  transition: all 0.3s ease;
+  border-radius: 10px;
 
-
-  /*      SECTION PROFIL           */
- 
+  /* ====== SECTION PROFIL ====== */
   .id {
     text-align: center;
     margin-bottom: $spacing-xl;
@@ -20,6 +18,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: all 0.3s ease;
 
       img {
         width: 120px;
@@ -27,6 +26,7 @@
         border-radius: 50%;
         border: 3px solid $second_color;
         margin-bottom: $spacing-md;
+        transition: all 0.3s ease;
       }
 
       h3 {
@@ -34,14 +34,12 @@
         font-size: $font-size-large;
         margin: 0;
         color: $text_color;
+        transition: font-size 0.3s ease;
       }
     }
   }
 
-
-
-  /*      NAVIGATION PRINCIPALE    */
-
+  /* ====== NAVIGATION PRINCIPALE ====== */
   .navigation ul {
     list-style: none;
     padding: 0;
@@ -63,6 +61,7 @@
         i {
           margin-right: $spacing-sm;
           font-size: 1.2rem;
+          transition: all 0.3s ease;
         }
 
         &:hover,
@@ -74,9 +73,7 @@
     }
   }
 
-
-  /*      RESEAUX SOCIAUX          */
-
+  /* ====== RESEAUX SOCIAUX ====== */
   .socialNetwork ul {
     list-style: none;
     display: flex;
@@ -104,9 +101,7 @@
     }
   }
 
-
-  /*      SIGNATURE DU CV          */
- 
+  /* ====== SIGNATURE ====== */
   .signature p {
     text-align: center;
     font-size: $font-size-small;
@@ -114,9 +109,7 @@
     margin-top: $spacing-md;
   }
 
-
-  /*________RESPONSIVITÉ_______________*/
-
+  /* ====== RESPONSIVE ====== */
 
   @media screen and (max-width: 840px) {
     width: 100%;
@@ -126,22 +119,18 @@
     align-items: center;
     padding: $spacing-sm $spacing-md;
 
-    .id {
-      margin-bottom: 0;
+    .id .idcontent {
+      flex-direction: row;
+      align-items: center;
 
-      .idcontent {
-        flex-direction: row;
-        align-items: center;
+      img {
+        width: 60px;
+        height: 60px;
+        margin-left: $spacing-md;
+      }
 
-        img {
-          width: 60px;
-          height: 60px;
-          margin-left: $spacing-md;
-        }
-
-        h3 {
-          font-size: 1rem;
-        }
+      h3 {
+        font-size: 1rem;
       }
     }
 
@@ -156,43 +145,20 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 580px) {
     flex-direction: column;
     align-items: center;
 
     .navigation ul {
-      flex-direction: column;
-      gap: $spacing-xs;
-    }
-
-    .id .idcontent {
-      flex-direction: column;
-
-      img {
-        width: 50px;
-        height: 50px;
-        margin: 0 0 $spacing-sm 0;
-      }
-
-      h3 {
-        font-size: 0.9rem;
-      }
-    }
-  }
-
-  
-  /*      MODE COMPACT (≤580px)    */
- 
-  @media screen and (max-width: 580px) {
-    .navigation ul {
       justify-content: space-between;
+      width: 100%;
 
       li {
         padding: 1rem 0 !important;
       }
 
       a {
-        justify-content: center; // centrer les icônes
+        justify-content: center;
       }
 
       i {
@@ -203,6 +169,26 @@
       span {
         display: none; // cacher le texte
       }
+    }
+
+    .id .idcontent {
+      flex-direction: column;
+      img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: $spacing-sm;
+      }
+
+      h3 {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .navigation ul {
+      flex-direction: column;
+      gap: $spacing-xs;
     }
   }
 }
