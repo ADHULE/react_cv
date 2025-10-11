@@ -1,14 +1,22 @@
 import React, { Component } from "react";
+// Importez le nouveau composant Modal
+import Modal from "./Modal"; 
 
 class Project extends Component {
   state = {
     showInformation: false,
   };
 
+  // Toggle pour afficher/cacher la modale
   handleInformation = () => {
     this.setState((prevState) => ({
       showInformation: !prevState.showInformation,
     }));
+  };
+
+  // Ajout d'une fonction pour fermer la modale, utile si on veut fermer via Esc ou un click extérieur
+  closeModal = () => {
+    this.setState({ showInformation: false });
   };
 
   render() {
@@ -36,19 +44,20 @@ class Project extends Component {
         />
 
         {/* Bouton pour afficher les infos */}
-        <span className="infos">
+        <span className="infos" style={{fontSize:"1.8rem", backgroundColor:"#38bdf8"}}>
           <i
             className="fas fa-plus-circle"
             onClick={this.handleInformation}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer"}}
           ></i>
         </span>
 
-        {/* Informations supplémentaires */}
+        {/* Rendu de la modale via Portal UNIQUEMENT si showInformation est true */}
         {this.state.showInformation && (
-          <div className="showInformation">
-            <div className="informationContent">
-              <div className="head">
+          <Modal isVisible={this.state.showInformation}>
+            {/* Contenu de la modale utilisant la classe CSS moderne .modal-content */}
+            <div className="modal-content">
+              <div className="modal-head"> {/* Renommé de .head à .modal-head */}
                 <h3>{name}</h3>
                 <div className="sourceCode">
                   <a
@@ -62,17 +71,16 @@ class Project extends Component {
                 </div>
               </div>
 
-              <p className="text">{info}</p>
+              <p className="modal-body">{info}</p> {/* Renommé de .text à .modal-body */}
 
-              <div
+              <button // Changé de <div> à <button> pour la sémantique
                 className="button return"
-                onClick={this.handleInformation}
-                style={{ cursor: "pointer" }}
+                onClick={this.handleInformation} // Peut utiliser closeModal si vous préférez
               >
                 Retourner sur la page
-              </div>
+              </button>
             </div>
-          </div>
+          </Modal>
         )}
       </div>
     );

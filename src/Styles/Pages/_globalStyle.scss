@@ -52,6 +52,7 @@ p {
 .knowledges,
 .notfound,
 .contact,
+.contactContact,
 .sidebar {
     display: flex;
     min-height: $min-height;
@@ -74,10 +75,8 @@ p {
 .skillsList {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
-    padding: 5px;
     flex-wrap: wrap;
-    gap: 20px;
+    // gap: 20px;
     border-radius: 8px;
 
 }
