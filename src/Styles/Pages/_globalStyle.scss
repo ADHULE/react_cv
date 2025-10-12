@@ -1,23 +1,15 @@
-/*       STYLES GLOBAUX          */
 
-** {
-    margin: 0%;
-    padding: 0%;
-}
+/*       STYLES GLOBAUX         */
 
-body {
-    font-family: $font-primary;
-    font-size: $font-size-base;
-    margin: 0;
-    padding: 0;
-    background-color: $background_color;
-    color: $principal_color;
-    line-height: 1.6;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
-/*   LAYOUT GLOBAL EN FLEX        */
+/*       TYPOGRAPHIE            */
 
 
 h1,
@@ -26,25 +18,26 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-secondary;
-    font-weight: $font-weight-bold;
-    margin: 0;
-    color: $principal_color;
+  font-family: $font-secondary;
+  font-weight: $font-weight-bold;
+  margin: 0;
+  color: $principal_color;
 }
 
 h2 {
-    text-transform: uppercase;
-    font-size: 1.8rem;
-
+  text-transform: uppercase;
+  font-size: 1.8rem;
 }
 
-/* Paragraphes */
 p {
-    font-family: $font-primary;
-    font-size: $font-size-base;
-    color: $principal_color;
-    margin-bottom: $spacing-md;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  color: $principal_color;
+  margin-bottom: $spacing-md;
 }
+
+
+/*       LAYOUT FLEX            */
 
 
 .home,
@@ -54,8 +47,8 @@ p {
 .contact,
 .contactContact,
 .sidebar {
-    display: flex;
-    min-height: $min-height;
+  display: flex;
+  min-height: $min-height;
 }
 
 .homeContent,
@@ -63,108 +56,98 @@ p {
 .project,
 .notfoundContent,
 .contactContent,
-
 .content {
-    display: grid;
-    // border: 2px solid black;
-    //  padding: 8px;
+  display: grid;
 }
 
 .experienceContent,
 .hobbyContent,
 .skillsList {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    // gap: 20px;
-    border-radius: 8px;
-
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 8px;
 }
 
 
-// reponsive
+/*       RESPONSIVE DESIGN      */
+
+
 @media screen and (max-width: 850px) {
+  /* Sections principales en colonne */
+  .home,
+  .portfolio,
+  .knowledges,
+  .notfound,
+  .contact {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: $min-height;
+    box-sizing: border-box;
+    text-align: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+  }
 
-    /* Ajustement global pour toutes les sections */
-    .home,
-    .portfolio,
-    .knowledges,
-    .notfound,
-    .contact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: $min-height;
-        padding: 1.5rem;
-     
-        box-sizing: border-box;
-        text-align: center;
-        gap: 1.5rem; // espace entre les éléments
-        transition: all 0.3s ease;
-    }
+  /* Sidebar en haut */
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: rgba($principal_color, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 10;
 
-    /* Sidebar se place en haut et devient compacte */
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        background: rgba($principal_color, 0.95);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 0 0 15px 15px;
-        padding: 0.8rem 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        z-index: 10;
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
 
-        nav {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
+      a {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+        color: white;
+        border-radius: 8px;
+        transition: background 0.3s ease;
 
-            a {
-                font-size: 0.95rem;
-                padding: 0.5rem 1rem;
-                color: white;
-                border-radius: 8px;
-                transition: background 0.3s ease;
-
-                &:hover,
-                &.active {
-                    background: lighten($principal_color, 10%);
-                }
-            }
+        &:hover,
+        &.active {
+          background: lighten($principal_color, 10%);
         }
+      }
     }
+  }
 
-    /* Ajustements pour les titres et textes */
-    h1,
-    h2,
-    h3,
-    h4,
-    p {
-        text-align: center;
-        max-width: 95%;
-        margin: 0 auto;
-    }
+  /* Titres et paragraphes centrés */
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    text-align: center;
+    max-width: 95%;
+    margin: 0 auto;
+  }
 
-    /* Portfolio : grille ajustée */
-    .portfolioContent {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.2rem;
-        width: 100%;
-    }
+  /* Portfolio en grille fluide */
+  .portfolioContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+  }
 
-    /* Réduction d'image pour home ou contact */
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 12px;
-    }
-
-
+  /* Images adaptatives (optionnel) */
+  // img {
+  //   max-width: 100%;
+  //   height: auto;
+  //   border-radius: 12px;
+  // }
 }

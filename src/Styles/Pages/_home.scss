@@ -1,14 +1,14 @@
 .homeContent {
-    // Background image avec transparence
-  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
-              url('../../Media/dev.jpg') no-repeat center center;
+  // Background image avec transparence
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    url('../../Media/dev.jpg') no-repeat center center;
   background-size: cover;
 
   // background-color: $principal_color;
   // color: $text_color;
   transition: all 0.4s ease-in-out;
 
-  border-radius: 12px;
+  // border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.8s ease-in-out both;
 
@@ -19,10 +19,10 @@
 
   .content {
     background-color: rgba($principal_color, 0.8);
-   
-   
-    margin: 1rem 0;
-    border-radius: 10px;
+
+
+    // margin: 1rem 0;
+    // border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -48,7 +48,7 @@
       margin-top: 1rem;
 
       h3 {
-        color: aqua;
+        // color: aqua;
         text-align: left;
         font-size: 1.2rem;
         margin-bottom: 0.8rem;
@@ -59,125 +59,260 @@
       .right {
         flex: 1 1 45%;
         padding: 1.2rem;
-        background: linear-gradient(
-          135deg,
-          lighten($second_color, 5%) 0%,
-          lighten($second_color, 15%) 100%
-        );
+
         border-radius: 8px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+
         &:hover {
           transform: translateY(-5px);
           box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-          background: linear-gradient(
-            135deg,
-            lighten($second_color, 10%) 0%,
-            lighten($second_color, 20%) 100%
-          );
+          background: linear-gradient(135deg,
+              lighten($second_color, 10%) 0%,
+              lighten($second_color, 20%) 100%);
         }
       }
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.95rem;
-      color: darken($text_color, 15%);
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
 
-      &:hover {
-        opacity: 1;
-      }
-    }
   }
 
-  /* ========================== */
+
   /*         RESPONSIVE         */
-  /* ========================== */
 
-  @media (max-width: 1024px) {
-    padding: 1.5rem;
+  .homeContent {
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+      url('../../Media/dev.jpg') no-repeat center center;
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out both;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
 
     .content {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      .childrenContent {
-        gap: 1rem;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .childrenContent {
+      background-color: rgba($principal_color, 0.8);
+      display: flex;
       flex-direction: column;
-
-      .left,
-      .right {
-        flex: 1 1 100%;
-      }
-    }
-
-    header h1 {
-      font-size: 1.6rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 1rem;
-
-    .content {
-      padding: 1rem;
-      gap: 1rem;
+      gap: 1.5rem;
+      animation: fadeIn 0.8s ease-in-out both;
 
       header h1 {
-        font-size: 1.4rem;
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: $text_color;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        animation: fadeSlide 0.8s ease-out both;
       }
 
       .childrenContent {
-        gap: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        h3 {
+          color: aqua;
+          text-align: left;
+          font-size: 1.2rem;
+          margin-bottom: 0.8rem;
+          letter-spacing: 0.5px;
+        }
 
         .left,
         .right {
-          padding: 0.8rem;
-          border-radius: 6px;
+          flex: 1 1 45%;
+          padding: 1.2rem;
+          border-radius: 8px;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg,
+                lighten($second_color, 10%) 0%,
+                lighten($second_color, 20%) 100%);
+          }
         }
       }
 
       footer {
-        font-size: 0.85rem;
+        text-align: center;
+        font-size: 0.95rem;
+        color: darken($text_color, 15%);
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
-  }
 
-  /* ========================== */
-  /*         ANIMATIONS         */
-  /* ========================== */
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+    /*         RESPONSIVE         */
 
-  @keyframes fadeSlide {
-    from {
-      opacity: 0;
-      transform: translateY(-15px);
+
+    /*  Petits smartphones (≤ 480px) */
+    @media screen and (max-width: 480px) {
+      .content {
+        padding: 1rem;
+        gap: 1rem;
+
+        header h1 {
+          font-size: 1.6rem;
+        }
+
+        .childrenContent {
+          flex-direction: column;
+          gap: 1rem;
+
+          .left,
+          .right {
+            flex: 1 1 100%;
+            padding: 1rem;
+
+            h3 {
+              text-align: center;
+              font-size: 1rem;
+              color: $principal_color;
+            }
+          }
+        }
+
+        footer {
+          font-size: 0.85rem;
+        }
+      }
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* Smartphones moyens (481px–580px) */
+    @media screen and (min-width: 481px) and (max-width: 580px) {
+      .content {
+        padding: 1.5rem;
+
+        header h1 {
+          font-size: 1.8rem;
+        }
+
+        .childrenContent {
+          flex-direction: column;
+          gap: 1.2rem;
+
+          .left,
+          .right {
+            flex: 1 1 100%;
+            padding: 1rem;
+
+            h3 {
+              text-align: center;
+              font-size: 1.1rem;
+              color: $principal_color;
+            }
+          }
+        }
+
+        footer {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    /*  Tablettes (581px–1024px) */
+    @media screen and (min-width: 581px) and (max-width: 1024px) {
+      .content {
+        padding: 2rem;
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        .childrenContent {
+          gap: 1.5rem;
+
+          .left,
+          .right {
+            flex: 1 1 48%;
+            padding: 1.2rem;
+
+            h3 {
+              text-align: center;
+              font-size: 1.2rem;
+              color: $principal_color;
+            }
+          }
+        }
+
+        footer {
+          font-size: 0.95rem;
+        }
+      }
+    }
+
+    /*  Ordinateurs (≥ 1025px) */
+    @media screen and (min-width: 1025px) {
+      .content {
+        padding: 3rem;
+
+        header h1 {
+          font-size: 2.2rem;
+        }
+
+        .childrenContent {
+          gap: 1.5rem;
+
+          .left,
+          .right {
+            flex: 1 1 45%;
+            padding: 1.2rem;
+
+            h3 {
+              text-align: left;
+              font-size: 1.2rem;
+              color: aqua;
+            }
+          }
+        }
+
+        footer {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    /*         ANIMATIONS         */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 }

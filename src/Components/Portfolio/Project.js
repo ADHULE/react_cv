@@ -55,9 +55,9 @@ class Project extends Component {
         {/* Rendu de la modale via Portal UNIQUEMENT si showInformation est true */}
         {this.state.showInformation && (
           <Modal isVisible={this.state.showInformation}>
-            {/* Contenu de la modale utilisant la classe CSS moderne .modal-content */}
+            
             <div className="modal-content">
-              <div className="modal-head"> {/* Renommé de .head à .modal-head */}
+              <div className="modal-head"> 
                 <h3>{name}</h3>
                 <div className="sourceCode">
                   <a
@@ -71,11 +71,11 @@ class Project extends Component {
                 </div>
               </div>
 
-              <p className="modal-body">{info}</p> {/* Renommé de .text à .modal-body */}
+              <p className="modal-body">{info}</p> 
 
-              <button // Changé de <div> à <button> pour la sémantique
+              <button 
                 className="button return"
-                onClick={this.handleInformation} // Peut utiliser closeModal si vous préférez
+                onClick={this.handleInformation}
               >
                 Retourner sur la page
               </button>

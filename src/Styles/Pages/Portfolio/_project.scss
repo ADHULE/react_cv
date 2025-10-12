@@ -1,12 +1,11 @@
-// ==========================================
-// 1. VARIABLES
-// ==========================================
-$principal-color: #007bff;
-$second-color: #6c63ff;
 
-$light-text: #fff;
-$dark-text: #222;
-$muted-text: #666;
+// 1. VARIABLES
+
+
+
+$light-text: #a6c51a;
+$dark-text: #0c0808;
+$muted-text: #6ae06a;
 
 $dark-bg-overlay: rgba(0, 0, 0, 0.6);
 $light-bg: rgba(255, 255, 255, 0.15); // effet "glass"
@@ -17,9 +16,8 @@ $blur-effect: blur(12px);
 $shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.25);
 $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
 
-// ==========================================
+
 // 2. MIXINS
-// ==========================================
 @mixin modern-button($bg-color, $shadow-color) {
   padding: 10px 24px;
   border-radius: $border-radius;
@@ -44,9 +42,9 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-// ==========================================
+
 // 3. MODALE OVERLAY
-// ==========================================
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -68,9 +66,9 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-// ==========================================
+
 // 4. MODALE CONTENT
-// ==========================================
+
 .modal-content {
   background: $light-bg;
   backdrop-filter: blur(20px) saturate(180%);
@@ -79,6 +77,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   border-radius: $border-radius;
   max-width: 700px;
   width: 90%;
+  color: black;
   color: $dark-text;
   box-shadow: $shadow-soft;
   position: relative;
@@ -150,34 +149,33 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-// ==========================================
+
 // 5. ANIMATIONS
-// ==========================================
+
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-// ==========================================
+
 // 6. EXTRA DESIGN TOUCHES
-// ==========================================
+
 .modal-content::before {
   content: "";
   position: absolute;
 
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0.05)
-  );
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.05));
   z-index: -1;
 }
 
@@ -207,52 +205,106 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
     input[type="radio"] {
       display: none;
 
-      &:checked + label {
+      &:checked+label {
         background: linear-gradient(135deg, $principal-color, $second-color);
         color: #fff;
         box-shadow: 0 4px 15px rgba($second-color, 0.4);
       }
     }
   }
-  
+
 }
 
-// ==========================================
 // 7. RESPONSIVITÉ (ADAPTATION ÉCRANS)
-// ==========================================
-@media (max-width: 992px) {
+
+
+/*  Grands écrans (≥ 1025px) */
+@media screen and (min-width: 1025px) {
+  .modal-content {
+    max-width: 700px;
+    padding: 40px;
+
+    .modal-head h3 {
+      font-size: 1.8rem;
+    }
+
+    .modal-body {
+      font-size: 1.8rem;
+    }
+
+    .button.return {
+      font-size: 1rem;
+      padding: 10px 24px;
+    }
+  }
+
+  .radioDisplay {
+    gap: 20px;
+
+    .radioItem label {
+      font-size: 0.95rem;
+      padding: 8px 16px;
+    }
+  }
+}
+
+/* Ordinateurs standards (769px–1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .modal-content {
     max-width: 85%;
     padding: 30px;
+
+    .modal-head h3 {
+      font-size: 1.6rem;
+    }
+
+    .modal-body {
+      font-size: 1.4rem;
+    }
+
+    .button.return {
+      font-size: 0.95rem;
+    }
   }
 
-  .modal-head h3 {
-    font-size: 1.5rem;
-  }
+  .radioDisplay {
+    gap: 16px;
 
-  .modal-body {
-    font-size: 1rem;
+    .radioItem label {
+      font-size: 0.9rem;
+      padding: 7px 14px;
+    }
   }
 }
 
-@media (max-width: 768px) {
+/* Tablettes (581px–768px) */
+@media screen and (min-width: 581px) and (max-width: 768px) {
   .modal-content {
     width: 95%;
     padding: 25px;
-  }
 
-  .modal-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    .modal-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
 
-    h3 {
-      font-size: 1.3rem;
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      .sourceCode .button {
+        width: 100%;
+        text-align: center;
+      }
     }
 
-    .sourceCode .button {
-      width: 100%;
-      text-align: center;
+    .modal-body {
+      font-size: 1.2rem;
+    }
+
+    .button.return {
+      font-size: 0.9rem;
+      padding: 10px 20px;
     }
   }
 
@@ -260,29 +312,53 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
     gap: 12px;
 
     .radioItem label {
-      padding: 6px 14px;
       font-size: 0.9rem;
+      padding: 6px 14px;
     }
   }
 }
 
-@media (max-width: 480px) {
+/* Petits smartphones (≤ 580px) */
+@media screen and (max-width: 580px) {
   .modal-content {
+    width: 95%;
     padding: 20px;
     border-radius: 10px;
+
+    .modal-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      .sourceCode .button {
+        width: 100%;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+    }
+
+    .modal-body {
+      font-size: 0.95rem;
+    }
+
+    .button.return {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
   }
 
-  .modal-head h3 {
-    font-size: 1.1rem;
-  }
+  .radioDisplay {
+    gap: 10px;
 
-  .modal-body {
-    font-size: 0.95rem;
-  }
-
-  .button.return {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
+    .radioItem label {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+    }
   }
 }

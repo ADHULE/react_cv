@@ -1,6 +1,6 @@
-/* ============================== */
+
 /*         PAGE NOT FOUND         */
-/* ============================== */
+
 .notfound {
   display: flex;
   justify-content: center;
@@ -16,9 +16,9 @@
   animation: fadeIn 1s ease-in-out both;
 }
 
-/* ============================== */
+
 /*         CONTENU CENTRAL        */
-/* ============================== */
+
 .notfoundContent {
   max-width: 600px;
   padding: 3rem 2rem;
@@ -35,9 +35,9 @@
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* ============================== */
+
 /*         TITRE ET TEXTE         */
-/* ============================== */
+
 .notfoundContent h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -56,9 +56,9 @@
   opacity: 0.9;
 }
 
-/* ============================== */
+
 /*            BOUTON              */
-/* ============================== */
+
 .notfoundContent a {
   display: inline-flex;
   align-items: center;
@@ -86,9 +86,9 @@
   font-size: 1.2rem;
 }
 
-/* ============================== */
+
 /*         RESPONSIVE DESIGN      */
-/* ============================== */
+
 @media (max-width: 768px) {
   .notfoundContent {
     padding: 2rem 1.5rem;
@@ -118,9 +118,9 @@
   }
 }
 
-/* ============================== */
+
 /*           ANIMATIONS           */
-/* ============================== */
+
 @keyframes fadeIn {
   from {
     opacity: 0;

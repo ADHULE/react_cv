@@ -1,5 +1,4 @@
 .progressBar {
-  // width: 100%;
   margin: 20px 0;
   padding: 20px;
   border-radius: 15px;
@@ -74,40 +73,89 @@
     }
   }
 
-  /* Ajout d'espaces visuels entre les groupes */
   .progressItem:not(:last-child) {
     margin-bottom: 25px;
   }
 
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    padding: 15px;
+  
+  // RESPONSIVE DESIGN
+  
 
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
-    .labelRow {
-      .label {
-        font-size: 1rem;
-      }
-
-      .level {
-        font-size: 0.85rem;
-      }
-    }
-  }
-
+  /* 📱 Petits smartphones (≤ 480px) */
   @media screen and (max-width: 480px) {
     padding: 10px;
 
     h3 {
       font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .progressItem {
+      .labelRow {
+        .label {
+          font-size: 1rem;
+        }
+
+        .level {
+          font-size: 0.85rem;
+        }
+      }
+
+      .bar {
+        height: 10px;
+      }
+    }
+  }
+
+  /* Tablettes (481px–768px) */
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    padding: 15px;
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+    }
+
+    .progressItem {
+      .labelRow {
+        .label {
+          font-size: 1.05rem;
+        }
+
+        .level {
+          font-size: 0.9rem;
+        }
+      }
+
+      .bar {
+        height: 11px;
+      }
+    }
+  }
+
+  /* Ordinateurs standards (769px–1024px) */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    padding: 18px;
+
+    h3 {
+      font-size: 1.3rem;
     }
 
     .bar {
-      height: 10px;
+      height: 12px;
+    }
+  }
+
+  /*  Grands écrans (≥ 1025px) */
+  @media screen and (min-width: 1025px) {
+    padding: 20px;
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    .bar {
+      height: 12px;
     }
   }
 }
