@@ -1,12 +1,14 @@
 .hobbies {
   padding: 2rem;
+    background: linear-gradient(120deg, $principal-color, $second_color);
+
 
   h2 {
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: $principal_color;
+    color: $accent-color;
   }
 
   .hobbyContent {
@@ -73,11 +75,11 @@
     }
   }
 
-  // ============================
+  
   // RESPONSIVE DESIGN
-  // ============================
+  
 
-  /* 📱 Petits smartphones (≤ 480px) */
+  /*  Petits smartphones (≤ 480px) */
   @media screen and (max-width: 480px) {
     padding: 1rem;
 
@@ -109,7 +111,7 @@
     }
   }
 
-  /* 📟 Tablettes (481px–768px) */
+  /*  Tablettes (481px–768px) */
   @media screen and (min-width: 481px) and (max-width: 768px) {
     padding: 1.5rem;
 
@@ -138,7 +140,7 @@
     }
   }
 
-  /* 💻 Ordinateurs standards (769px–1024px) */
+  /*  Ordinateurs standards (769px–1024px) */
   @media screen and (min-width: 769px) and (max-width: 1024px) {
     .hobbyContent {
       gap: 1.5rem;
@@ -151,7 +153,7 @@
     }
   }
 
-  /* 🖥️ Grands écrans (≥ 1025px) */
+  /* Grands écrans (≥ 1025px) */
   @media screen and (min-width: 1025px) {
     .hobbyContent {
       gap: 1.5rem;

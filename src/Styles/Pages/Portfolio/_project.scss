@@ -57,6 +57,7 @@ $blur: blur(16px);
   min-height: 100vh;
   padding: 50px 20px;
   font-family: "Roboto", sans-serif;
+  background: linear-gradient(120deg, $principal_color ,$second_color);
 
   h2 {
     font-size: 2.2rem;
@@ -83,7 +84,7 @@ $blur: blur(16px);
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    // justify-content: space-between;
+    // border: 1px solid black;
 
   }
 }
@@ -93,14 +94,18 @@ $blur: blur(16px);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   justify-items: center;
-
+  // border: 1px solid black;
+  
   .project {
-    background: $color-light;
-    border-radius: $radius;
+    // border: 1px solid black;
+    background: linear-gradient(120deg, $principal_color, $second_color);
+  
     overflow: hidden;
     box-shadow: $shadow-soft;
     transition: $transition;
     position: relative;
+    width: 100%;
+  
 
     &:hover {
       transform: translateY(-6px);
@@ -135,14 +140,14 @@ $blur: blur(16px);
     }
 
     .infos {
-      background: $color-primary;
       color: $color-light;
       text-align: center;
-      padding: 12px 0;
-      border-radius: 0 0 $radius $radius;
+      margin: 30px;
+      border-radius: 30px;
       font-size: 1rem;
       transition: $transition;
 
+      
       &:hover {
         background: darken($color-primary, 10%);
       }

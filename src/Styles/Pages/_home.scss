@@ -1,317 +1,152 @@
-.homeContent {
-  // Background image avec transparence
-  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-    url('../../Media/dev.jpg') no-repeat center center;
-  background-size: cover;
+.home {
+  // // Background image avec transparence
+  // background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+  //   url('../../Media/dev.jpg') no-repeat center center;
+  // background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  color: $text-dark;
+  // background-color: rgba($principal_color, 0.8);
+  min-height: 100vh;
 
-  // background-color: $principal_color;
-  // color: $text_color;
-  transition: all 0.4s ease-in-out;
-
-  // border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.8s ease-in-out both;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
-
-  .content {
-    background-color: rgba($principal_color, 0.8);
-
-
-    // margin: 1rem 0;
-    // border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    animation: fadeIn 0.8s ease-in-out both;
-
-    header {
-      h1 {
-        text-align: center;
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: $text_color;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        animation: fadeSlide 0.8s ease-out both;
-      }
-    }
-
-    .childrenContent {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: space-between;
-      margin-top: 1rem;
-
-      h3 {
-        // color: aqua;
-        text-align: left;
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-        letter-spacing: 0.5px;
-      }
-
-      .left,
-      .right {
-        flex: 1 1 45%;
-        padding: 1.2rem;
-
-        border-radius: 8px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-
-        &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-          background: linear-gradient(135deg,
-              lighten($second_color, 10%) 0%,
-              lighten($second_color, 20%) 100%);
-        }
-      }
-    }
-
-
-  }
-
-
-  /*         RESPONSIVE         */
 
   .homeContent {
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-      url('../../Media/dev.jpg') no-repeat center center;
-    background-size: cover;
-    transition: all 0.4s ease-in-out;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease-in-out both;
+    background: linear-gradient(120deg, $principal-color, $second_color);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .content {
-      background-color: rgba($principal_color, 0.8);
+    .hero {
+      max-width: 1200px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      animation: fadeIn 0.8s ease-in-out both;
+      gap: 40px;
 
-      header h1 {
+      .hero-header {
         text-align: center;
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: $text_color;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        animation: fadeSlide 0.8s ease-out both;
-      }
 
-      .childrenContent {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: space-between;
-        margin-top: 1rem;
+        h1 {
+          font-size: 3rem;
+          font-weight: 700;
 
-        h3 {
-          color: aqua;
-          text-align: left;
-          font-size: 1.2rem;
-          margin-bottom: 0.8rem;
-          letter-spacing: 0.5px;
+          .name-bold {
+            color: $primary-color;
+          }
         }
 
-        .left,
-        .right {
+        h2 {
+          font-size: 1.6rem;
+          margin-top: 10px;
+          color: $secondary-color;
+        }
+
+        .hook {
+          margin-top: 20px;
+          font-size: 1.2rem;
+          font-weight: 400;
+        }
+      }
+
+      .hero-main {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+
+        .left-panel,
+        .right-panel {
           flex: 1 1 45%;
-          padding: 1.2rem;
-          border-radius: 8px;
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          background: rgba(255, 255, 255, 0.15);
+          padding: 20px;
+          border-radius: 15px;
+          transition: all 0.3s ease;
 
           &:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg,
-                lighten($second_color, 10%) 0%,
-                lighten($second_color, 20%) 100%);
+          }
+
+          h3 {
+            color: $primary-color;
+            margin-bottom: 10px;
+          }
+
+          p {
+            color: $text-light;
+            line-height: 1.6;
+          }
+
+          span {
+            color: $accent-color;
+            font-weight: 700;
           }
         }
       }
 
-      footer {
+      .hero-footer {
         text-align: center;
-        font-size: 0.95rem;
-        color: darken($text_color, 15%);
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        opacity: 0.8;
-        transition: opacity 0.3s ease;
 
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
-
-
-    /*         RESPONSIVE         */
-
-
-    /*  Petits smartphones (≤ 480px) */
-    @media screen and (max-width: 480px) {
-      .content {
-        padding: 1rem;
-        gap: 1rem;
-
-        header h1 {
-          font-size: 1.6rem;
+        .cta-text {
+          font-size: 1.1rem;
+          margin-bottom: 15px;
         }
 
-        .childrenContent {
-          flex-direction: column;
-          gap: 1rem;
+        .download-button {
+          background: $success_color;
+          color: $text-light;
+          padding: 12px 25px;
+          border-radius: 30px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s ease;
 
-          .left,
-          .right {
-            flex: 1 1 100%;
-            padding: 1rem;
-
-            h3 {
-              text-align: center;
-              font-size: 1rem;
-              color: $principal_color;
-            }
+          &:hover {
+            background: $accent-color;
+            color: $text-dark;
+            transform: translateY(-3px) scale(1.05);
           }
         }
+      }
+    }
+  }
 
-        footer {
-          font-size: 0.85rem;
-        }
+  // Media queries
+  @media (max-width: 1024px) {
+    .hero-main {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-header {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .hook {
+        font-size: 1rem;
       }
     }
 
-    /* Smartphones moyens (481px–580px) */
-    @media screen and (min-width: 481px) and (max-width: 580px) {
-      .content {
-        padding: 1.5rem;
-
-        header h1 {
-          font-size: 1.8rem;
-        }
-
-        .childrenContent {
-          flex-direction: column;
-          gap: 1.2rem;
-
-          .left,
-          .right {
-            flex: 1 1 100%;
-            padding: 1rem;
-
-            h3 {
-              text-align: center;
-              font-size: 1.1rem;
-              color: $principal_color;
-            }
-          }
-        }
-
-        footer {
-          font-size: 0.9rem;
-        }
-      }
-    }
-
-    /*  Tablettes (581px–1024px) */
-    @media screen and (min-width: 581px) and (max-width: 1024px) {
-      .content {
-        padding: 2rem;
-
-        header h1 {
-          font-size: 2rem;
-        }
-
-        .childrenContent {
-          gap: 1.5rem;
-
-          .left,
-          .right {
-            flex: 1 1 48%;
-            padding: 1.2rem;
-
-            h3 {
-              text-align: center;
-              font-size: 1.2rem;
-              color: $principal_color;
-            }
-          }
-        }
-
-        footer {
-          font-size: 0.95rem;
-        }
-      }
-    }
-
-    /*  Ordinateurs (≥ 1025px) */
-    @media screen and (min-width: 1025px) {
-      .content {
-        padding: 3rem;
-
-        header h1 {
-          font-size: 2.2rem;
-        }
-
-        .childrenContent {
-          gap: 1.5rem;
-
-          .left,
-          .right {
-            flex: 1 1 45%;
-            padding: 1.2rem;
-
-            h3 {
-              text-align: left;
-              font-size: 1.2rem;
-              color: aqua;
-            }
-          }
-        }
-
-        footer {
-          font-size: 1rem;
-        }
-      }
-    }
-
-    /*         ANIMATIONS         */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
+    .hero-footer {
+      .cta-text {
+        font-size: 1rem;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .download-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
       }
     }
   }

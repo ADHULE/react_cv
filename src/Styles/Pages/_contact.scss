@@ -4,14 +4,13 @@
   color: #333;
 
   .contactContent {
-    // background: url('../../Media/total_img.jpg') no-repeat center top/cover;
-    // max-width: 900px;
     width: 100%;
     margin: 0 auto;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+    background: linear-gradient(120deg, $principal-color, $second_color);
+
 
     // header designer
     .header {
@@ -24,6 +23,7 @@
       text-align: center;
       // border: 2px solid black;
       border-radius: 50%;
+
 
 
       &::before {
@@ -53,7 +53,9 @@
 
     // info designer
     .contactBox {
-      padding: 2rem 3rem;
+
+      background: linear-gradient(120deg, $principal-color, $second_color);
+
 
       h2 {
         font-size: 1.8rem;
@@ -103,19 +105,23 @@
 
     // designer sicial network
     .socialNetwork {
-      margin: 2.5rem 0;
+      background: linear-gradient(220deg, $principal-color, $second_color);
+
+      // margin: 2.5rem 0;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 1.2rem;
       padding: 0 2rem 2rem;
+
 
       a {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: #edf6f9;
+        background: $principal-color;
         border-radius: 12px;
+        margin-top: 30px;
         padding: 1rem;
         text-decoration: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);

@@ -1,5 +1,7 @@
 .experience {
   padding: 2rem;
+    background: linear-gradient(120deg, $principal-color, $second_color);
+
 
   h2 {
     text-align: center;
@@ -8,7 +10,7 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 0.5rem;
     font-size: 2rem;
-    color: $principal_color;
+    color: $success_color;
   }
 
   .experienceContent {
@@ -19,7 +21,10 @@
     justify-content: center;
 
     .experienceCard {
-      background-color: rgba(255, 255, 255, 0.85);
+      // background:linear-gradient(120deg, $principal-color, $second-color);
+
+      background-color: $bg-green-gradient;
+      // border: 2px solid black;
       backdrop-filter: blur(4px);
       border-radius: 10px;
       padding: 1.5rem;
@@ -38,7 +43,6 @@
       .experienceHeader {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-bottom: 1rem;
 
         h3 {
@@ -46,14 +50,16 @@
           font-weight: 600;
           margin: 0;
           text-transform: capitalize;
-          color: $principal_color;
+           color: $secondary-color;
+           text-align: left;
         }
 
         .annee {
           font-size: 1rem;
           opacity: 0.75;
           font-style: italic;
-          color: $secondary_color;
+          // color: $secondary_color;
+          color: $success_color;
         }
       }
 
@@ -73,11 +79,11 @@
     }
   }
 
-  // ============================
+  
   // RESPONSIVE DESIGN
-  // ============================
+  
 
-  /* 📱 Petits smartphones (≤ 480px) */
+  /* Petits smartphones (≤ 480px) */
   @media screen and (max-width: 480px) {
     padding: 1rem;
 
@@ -108,7 +114,7 @@
     }
   }
 
-  /* 📟 Tablettes (481px–768px) */
+  /* Tablettes (481px–768px) */
   @media screen and (min-width: 481px) and (max-width: 768px) {
     padding: 1.5rem;
 
@@ -138,14 +144,14 @@
     }
   }
 
-  /* 💻 Ordinateurs standards (769px–1024px) */
+  /*  Ordinateurs standards (769px–1024px) */
   @media screen and (min-width: 769px) and (max-width: 1024px) {
     .experienceContent {
       gap: 1.5rem;
     }
   }
 
-  /* 🖥️ Grands écrans (≥ 1025px) */
+  /* Grands écrans (≥ 1025px) */
   @media screen and (min-width: 1025px) {
     .experienceContent {
       gap: 2rem;

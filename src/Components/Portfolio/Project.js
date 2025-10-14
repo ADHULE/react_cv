@@ -33,6 +33,7 @@ class Project extends Component {
 
         {/* Nom du projet */}
         <h3>{name}</h3>
+        
 
         {/* Image cliquable */}
         <img
@@ -48,8 +49,8 @@ class Project extends Component {
           <i
             className="fas fa-plus-circle"
             onClick={this.handleInformation}
-            style={{ cursor: "pointer"}}
-          ></i>
+            style={{ cursor: "pointer",fontSize:"14px"}}
+          >Infos</i>
         </span>
 
         {/* Rendu de la modale via Portal UNIQUEMENT si showInformation est true */}

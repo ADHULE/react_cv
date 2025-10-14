@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
 
 
@@ -49,6 +50,7 @@ p {
 .sidebar {
   display: flex;
   min-height: $min-height;
+  
 }
 
 .homeContent,
@@ -67,6 +69,7 @@ p {
   justify-content: space-between;
   flex-wrap: wrap;
   border-radius: 8px;
+
 }
 
 
@@ -86,8 +89,8 @@ p {
     min-height: $min-height;
     box-sizing: border-box;
     text-align: center;
-    gap: 1.5rem;
     transition: all 0.3s ease;
+    
   }
 
   /* Sidebar en haut */
