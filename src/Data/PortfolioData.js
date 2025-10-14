@@ -95,8 +95,9 @@ export const PortfolioData = [
     source: "https://github.com/AdhuleJean/iot-simulator",
     info: "Application simulant des capteurs IoT et affichant les données en temps réel sur une interface React.",
     picture: process.env.PUBLIC_URL + "/Media/iot.png",
-  }, {
-    id: 1,
+  },
+    {
+    id: 9,
     name: "Portfolio Personnel",
     languages: ["React", "SCSS", "HTML", "CSS"],
     languagesIcons: [
@@ -110,7 +111,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/total_img.jpg",
   },
   {
-    id: 2,
+    id: 10,
     name: "Application de Gestion de Tâches",
     languages: ["JavaScript", "Node.js", "MongoDB", "Bootstrap"],
     languagesIcons: [
@@ -124,7 +125,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/to_do_app.png",
   },
   {
-    id: 3,
+    id: 11,
     name: "Détecteur d'Alcool avec Arduino",
     languages: ["C++", "Python"],
     languagesIcons: ["fab fa-python", "fas fa-microchip"],
@@ -133,7 +134,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/alcohol_detector.png",
   },
   {
-    id: 4,
+    id: 12,
     name: "Application Mobile de Reconnaissance Faciale",
     languages: ["Dart", "Flutter", "Python"],
     languagesIcons: ["fab fa-android", "fab fa-python", "fas fa-robot"],
@@ -142,7 +143,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/face_recognition.png",
   },
   {
-    id: 5,
+    id: 13,
     name: "Blog Technique avec Symfony",
     languages: ["PHP", "Symfony", "MySQL", "jQuery"],
     languagesIcons: [
@@ -156,7 +157,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/blog_symfony.png",
   },
   {
-    id: 6,
+    id: 14,
     name: "Tableau de Bord Analytique",
     languages: ["JavaScript", "React", "Bootstrap", "CSS"],
     languagesIcons: [
@@ -170,7 +171,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/dashboard.png",
   },
   {
-    id: 7,
+    id: 15,
     name: "Site de E-commerce",
     languages: ["PHP", "MySQL", "Bootstrap", "jQuery"],
     languagesIcons: [
@@ -184,7 +185,7 @@ export const PortfolioData = [
     picture: process.env.PUBLIC_URL + "/Media/e_commerce.png",
   },
   {
-    id: 8,
+    id: 16,
     name: "Simulateur de Capteurs IoT",
     languages: ["Python", "React", "Node.js"],
     languagesIcons: ["fab fa-python", "fab fa-react", "fab fa-node"],
@@ -192,4 +193,5 @@ export const PortfolioData = [
     info: "Application simulant des capteurs IoT et affichant les données en temps réel sur une interface React.",
     picture: process.env.PUBLIC_URL + "/Media/iot.png",
   },
+  
 ];

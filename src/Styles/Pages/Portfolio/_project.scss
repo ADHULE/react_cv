@@ -1,40 +1,44 @@
-
-// 1. VARIABLES
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 
-$light-text: #a6c51a;
-$dark-text: #0c0808;
-$muted-text: #6ae06a;
-
-$dark-bg-overlay: rgba(0, 0, 0, 0.6);
-$light-bg: rgba(255, 255, 255, 0.15); // effet "glass"
-$border-radius: 14px;
-$transition-speed: 0.35s;
-$fast-transition: all $transition-speed ease-in-out;
-$blur-effect: blur(12px);
-$shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.25);
-$shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
+//  1. VARIABLES GLOBALES
 
 
-// 2. MIXINS
-@mixin modern-button($bg-color, $shadow-color) {
-  padding: 10px 24px;
-  border-radius: $border-radius;
-  text-decoration: none;
+$color-bg: #f9fafc;
+$color-primary: #3f72af;
+$color-secondary: #112a46;
+$color-accent: #38bdf8;
+$color-warning: #ff7f50;
+$color-light: #ffffff;
+$color-muted: #94a3b8;
+$color-dark: #0f172a;
+
+$radius: 14px;
+$transition: all 0.3s ease;
+$shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+$blur: blur(16px);
+
+
+// 2. MIXINS 
+
+
+@mixin button($bg, $color: #fff) {
+  display: inline-block;
+  background: linear-gradient(135deg, lighten($bg, 5%), darken($bg, 5%));
+  color: $color;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 30px;
   font-weight: 600;
   cursor: pointer;
-  transition: $fast-transition;
-  color: $light-text;
-  background: linear-gradient(135deg, lighten($bg-color, 10%), darken($bg-color, 5%));
-  border: none;
-  box-shadow: 0 4px 15px rgba($shadow-color, 0.3);
-  letter-spacing: 0.5px;
+  transition: $transition;
+  box-shadow: 0 4px 15px rgba($bg, 0.3);
 
   &:hover {
     transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 25px rgba($bg, 0.5);
     filter: brightness(1.1);
-    box-shadow: 0 6px 25px rgba($shadow-color, 0.45);
   }
 
   &:active {
@@ -43,322 +47,258 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
 }
 
 
-// 3. MODALE OVERLAY
+// 3. STRUCTURE DU PORTFOLIO
+
+
+.portfolioContent {
+  display: flex;
+  flex-direction: column;
+  background: $color-bg;
+  min-height: 100vh;
+  padding: 50px 20px;
+  font-family: "Roboto", sans-serif;
+
+  h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    color: $color-secondary;
+    position: relative;
+    letter-spacing: 1px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      background: $color-primary;
+      border-radius: 2px;
+      margin: 10px auto 0;
+      animation: slideIn 1s ease forwards;
+    }
+  }
+
+  .radioDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    // justify-content: space-between;
+
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+
+  .project {
+    background: $color-light;
+    border-radius: $radius;
+    overflow: hidden;
+    box-shadow: $shadow-soft;
+    transition: $transition;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: $shadow-hover;
+    }
+
+
+    h3 {
+      font-size: 1.3rem;
+      text-align: center;
+      color: $color-secondary;
+      margin: 15px 0 10px;
+    }
+
+    .languagesIcons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 10px;
+
+      i {
+        color: $color-primary;
+        font-size: 1.5rem;
+        transition: $transition;
+
+        &:hover {
+          color: $color-warning;
+          transform: scale(1.3) rotate(6deg);
+        }
+      }
+    }
+
+    .infos {
+      background: $color-primary;
+      color: $color-light;
+      text-align: center;
+      padding: 12px 0;
+      border-radius: 0 0 $radius $radius;
+      font-size: 1rem;
+      transition: $transition;
+
+      &:hover {
+        background: darken($color-primary, 10%);
+      }
+    }
+  }
+}
+
+.noProject {
+  background: lighten($color-primary, 40%);
+  color: $color-secondary;
+  text-align: center;
+  font-weight: 500;
+  padding: 15px 25px;
+  border-radius: $radius;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+
+
+//  4. modèle de détail d'un projet
 
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(30, 30, 30, 0.8));
-  backdrop-filter: $blur-effect;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-
-  visibility: hidden;
+  background: rgba($color-dark, 0.8);
+  backdrop-filter: $blur;
+  z-index: 1000;
   opacity: 0;
-  transition: opacity $transition-speed ease, visibility $transition-speed;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 
   &.is-visible {
-    visibility: visible;
     opacity: 1;
-    animation: fadeIn 0.5s ease forwards;
+    visibility: visible;
   }
 }
 
-
-// 4. MODALE CONTENT
-
 .modal-content {
-  background: $light-bg;
+  background: rgba($color-light, 0.1);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: $radius;
   padding: 40px;
-  border-radius: $border-radius;
   max-width: 700px;
   width: 90%;
-  color: black;
-  color: $dark-text;
-  box-shadow: $shadow-soft;
-  position: relative;
-  overflow-y: auto;
-  max-height: 90vh;
-
-  // Animation d'apparition
-  opacity: 0;
-  transform: translateY(20px) scale(0.96);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  color: $color-light;
+  // color: black;
+  box-shadow: $shadow-hover;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
 
   .modal-overlay.is-visible & {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 
-  // ===== HEADER =====
   .modal-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 18px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     h3 {
-      color: $principal-color;
-      font-weight: 700;
       font-size: 1.8rem;
-      margin: 0;
+      color: $color-accent;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      margin: 0;
     }
 
     .sourceCode .button {
-      @include modern-button($principal-color, $principal-color);
-      font-size: 0.95rem;
+      @include button($color-accent);
+      font-size: 0.9rem;
     }
   }
 
-  // ===== BODY =====
   .modal-body {
-    line-height: 1.7;
-    color: $muted-text;
-    font-size: 1.8rem;
-    text-align: justify;
-    padding: 10px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: $color-muted;
+  }
 
-    p {
-      margin-bottom: 18px;
+  .button.return {
+    @include button($color-primary);
+    margin-top: 25px;
+  }
+}
+
+//  5. RESPONSIVE DESIGN
+
+@media (max-width: 768px) {
+  .portfolioContent {
+    padding: 30px 15px;
+
+    h2 {
+      font-size: 1.6rem;
     }
 
-    ul {
-      margin: 15px 0;
-      padding-left: 20px;
+    .projects {
+      gap: 20px;
+    }
 
-      li {
-        margin-bottom: 8px;
-        list-style: disc;
-      }
+    .project h3 {
+      font-size: 1.1rem;
     }
   }
 
-  // ===== FOOTER / BOUTON DE RETOUR =====
-  .button.return {
-    @include modern-button($second-color, $second-color);
-    margin-top: 30px;
-    display: inline-block;
+  .modal-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioContent {
+    padding: 20px 10px;
+
+    .radioDisplay {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .project .projectImage {
+      height: 160px;
+    }
+  }
+
+  .modal-content {
+    padding: 20px;
+    border-radius: 10px;
   }
 }
 
 
-// 5. ANIMATIONS
+//  6. ANIMATIONS
+
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.97);
+    transform: translateY(15px);
   }
 
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 
-
-// 6. EXTRA DESIGN TOUCHES
-
-.modal-content::before {
-  content: "";
-  position: absolute;
-
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.25),
-      rgba(255, 255, 255, 0.05));
-  z-index: -1;
-}
-
-.modal-content:hover {
-  box-shadow: $shadow-hover;
-  transform: translateY(-4px) scale(1.01);
-}
-
-.radioDisplay {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-
-  .radioItem {
-    label {
-      color: $light-text;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 8px 16px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: $fast-transition;
-      font-size: 0.95rem;
-    }
-
-    input[type="radio"] {
-      display: none;
-
-      &:checked+label {
-        background: linear-gradient(135deg, $principal-color, $second-color);
-        color: #fff;
-        box-shadow: 0 4px 15px rgba($second-color, 0.4);
-      }
-    }
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
   }
 
-}
-
-// 7. RESPONSIVITÉ (ADAPTATION ÉCRANS)
-
-
-/*  Grands écrans (≥ 1025px) */
-@media screen and (min-width: 1025px) {
-  .modal-content {
-    max-width: 700px;
-    padding: 40px;
-
-    .modal-head h3 {
-      font-size: 1.8rem;
-    }
-
-    .modal-body {
-      font-size: 1.8rem;
-    }
-
-    .button.return {
-      font-size: 1rem;
-      padding: 10px 24px;
-    }
-  }
-
-  .radioDisplay {
-    gap: 20px;
-
-    .radioItem label {
-      font-size: 0.95rem;
-      padding: 8px 16px;
-    }
-  }
-}
-
-/* Ordinateurs standards (769px–1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .modal-content {
-    max-width: 85%;
-    padding: 30px;
-
-    .modal-head h3 {
-      font-size: 1.6rem;
-    }
-
-    .modal-body {
-      font-size: 1.4rem;
-    }
-
-    .button.return {
-      font-size: 0.95rem;
-    }
-  }
-
-  .radioDisplay {
-    gap: 16px;
-
-    .radioItem label {
-      font-size: 0.9rem;
-      padding: 7px 14px;
-    }
-  }
-}
-
-/* Tablettes (581px–768px) */
-@media screen and (min-width: 581px) and (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-    padding: 25px;
-
-    .modal-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-
-      h3 {
-        font-size: 1.3rem;
-      }
-
-      .sourceCode .button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    .modal-body {
-      font-size: 1.2rem;
-    }
-
-    .button.return {
-      font-size: 0.9rem;
-      padding: 10px 20px;
-    }
-  }
-
-  .radioDisplay {
-    gap: 12px;
-
-    .radioItem label {
-      font-size: 0.9rem;
-      padding: 6px 14px;
-    }
-  }
-}
-
-/* Petits smartphones (≤ 580px) */
-@media screen and (max-width: 580px) {
-  .modal-content {
-    width: 95%;
-    padding: 20px;
-    border-radius: 10px;
-
-    .modal-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-
-      h3 {
-        font-size: 1.1rem;
-      }
-
-      .sourceCode .button {
-        width: 100%;
-        text-align: center;
-        font-size: 0.85rem;
-      }
-    }
-
-    .modal-body {
-      font-size: 0.95rem;
-    }
-
-    .button.return {
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-      font-size: 0.9rem;
-    }
-  }
-
-  .radioDisplay {
-    gap: 10px;
-
-    .radioItem label {
-      font-size: 0.85rem;
-      padding: 6px 12px;
-    }
+  to {
+    width: 90px;
+    opacity: 1;
   }
 }

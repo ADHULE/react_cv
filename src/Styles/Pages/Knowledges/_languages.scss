@@ -1,45 +1,128 @@
 .languages {
-
     h2 {
         text-align: center;
-
+        font-size: 2rem;
+        // color: $principal_color;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
     .content {
         display: flex;
-
         justify-content: space-between;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 20px 0;
 
         .languagesSection,
         .frameworksSection {
             width: 50%;
             margin: 10px;
-            padding: 5px;
+            padding: 15px;
             border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
 
             &:hover {
-                box-shadow: 0 5px 0 5px $principal_color;
+                // box-shadow: 0 5px 20px rgba($principal_color, 0.4);
+                transform: translateY(-4px);
             }
-        }
 
+            h3 {
+                text-align: center;
+                font-size: 1.4rem;
+                // color: $principal_color;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+            }
+
+        }
     }
 
 
-    // @media screen and (max-width: 850px) {
-    //     .content {
-    //         width: 100%;
-    //         flex-direction: column;
-    //         justify-content: center;
-
-    //         .frameworksSection,
-    //         .languagesSection {
-    //             width: 100%;
-            
-    //         }
-    //     }
-
-    // }
+    //  RESPONSIVE DESIGN
 
 
+    /* Grands écrans (≥ 1200px) */
+    @media screen and (min-width: 1200px) {
+        h2 {
+            font-size: 2.2rem;
+        }
 
+        .content {
+            gap: 40px;
+
+            .languagesSection,
+            .frameworksSection {
+                padding: 20px;
+            }
+        }
+    }
+
+    /* Ordinateurs standards (769px–1199px) */
+    @media screen and (min-width: 769px) and (max-width: 1199px) {
+        h2 {
+            font-size: 1.9rem;
+        }
+
+        .content {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+
+            .languagesSection,
+            .frameworksSection {
+                width: 45%;
+            }
+        }
+    }
+
+    /* Tablettes (581px–768px) */
+    @media screen and (min-width: 581px) and (max-width: 768px) {
+        h2 {
+            font-size: 1.7rem;
+        }
+
+        .content {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            .languagesSection,
+            .frameworksSection {
+                width: 80%;
+            }
+        }
+    }
+
+    /* Petits smartphones (≤ 580px) */
+    @media screen and (max-width: 580px) {
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .content {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+            .languagesSection,
+            .frameworksSection {
+                width: 95%;
+                padding: 10px;
+            }
+
+            ul li {
+                font-size: 0.9rem;
+
+                i {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
