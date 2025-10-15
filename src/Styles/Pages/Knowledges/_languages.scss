@@ -44,6 +44,51 @@
         }
     }
 
+    // === Animations globales ===
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    // === Application des animations ===
+    .languages {
+        animation: fadeUp 1s ease forwards;
+
+        .languagesSection,
+        .frameworksSection {
+            opacity: 0;
+            animation: zoomIn 0.8s ease forwards;
+        }
+
+        // délai progressif pour effet cascade
+        .languagesSection {
+            animation-delay: 0.3s;
+        }
+
+        .frameworksSection {
+            animation-delay: 0.6s;
+        }
+    }
+
 
     //  RESPONSIVE DESIGN
 

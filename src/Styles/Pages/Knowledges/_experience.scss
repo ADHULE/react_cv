@@ -1,7 +1,6 @@
 .experience {
   padding: 2rem;
-    background: linear-gradient(120deg, $principal-color, $second_color);
-
+  background: linear-gradient(120deg, $principal-color, $second_color);
 
   h2 {
     text-align: center;
@@ -11,6 +10,7 @@
     padding-bottom: 0.5rem;
     font-size: 2rem;
     color: $success_color;
+    animation: fadeInDown 0.8s ease-out both;
   }
 
   .experienceContent {
@@ -19,23 +19,29 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     justify-content: center;
+    animation: fadeInUp 1s ease-in-out both;
 
     .experienceCard {
-      // background:linear-gradient(120deg, $principal-color, $second-color);
-
       background-color: $bg-green-gradient;
-      // border: 2px solid black;
       backdrop-filter: blur(4px);
       border-radius: 10px;
       padding: 1.5rem;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardFadeUp 0.8s ease forwards;
+
+      // effet différé pour chaque carte
+      &:nth-child(1) { animation-delay: 0.2s; }
+      &:nth-child(2) { animation-delay: 0.4s; }
+      &:nth-child(3) { animation-delay: 0.6s; }
 
       &:hover {
-        transform: translateY(-8px);
+        transform: translateY(-8px) scale(1.02);
         box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         border: 1px solid $second_color;
       }
@@ -50,15 +56,14 @@
           font-weight: 600;
           margin: 0;
           text-transform: capitalize;
-           color: $secondary-color;
-           text-align: left;
+          color: $secondary-color;
+          text-align: left;
         }
 
         .annee {
           font-size: 1rem;
           opacity: 0.75;
           font-style: italic;
-          // color: $secondary_color;
           color: $success_color;
         }
       }
@@ -79,11 +84,41 @@
     }
   }
 
-  
-  // RESPONSIVE DESIGN
-  
+  // === Animations ===
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-  /* Petits smartphones (≤ 480px) */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes cardFadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  // === Responsive Design ===
   @media screen and (max-width: 480px) {
     padding: 1rem;
 
@@ -114,7 +149,6 @@
     }
   }
 
-  /* Tablettes (481px–768px) */
   @media screen and (min-width: 481px) and (max-width: 768px) {
     padding: 1.5rem;
 
@@ -144,14 +178,12 @@
     }
   }
 
-  /*  Ordinateurs standards (769px–1024px) */
   @media screen and (min-width: 769px) and (max-width: 1024px) {
     .experienceContent {
       gap: 1.5rem;
     }
   }
 
-  /* Grands écrans (≥ 1025px) */
   @media screen and (min-width: 1025px) {
     .experienceContent {
       gap: 2rem;

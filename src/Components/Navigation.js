@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom"; //la fonction pour naviguer entres les différentes pages 
+import { NavLink } from "react-router-dom"; //la fonction pour naviguer entres les différentes pages
+import totalImg from "../Media/total_img.jpg";
 
 const Navigation = () => {
   return (
@@ -7,9 +8,8 @@ const Navigation = () => {
       {/* Section profil */}
       <div className="id">
         <div className="idcontent">
-        
-      <img src={`${process.env.PUBLIC_URL}/Media/my.jpg`} alt="Photo" />
-
+          {/* <img src={`${process.env.PUBLIC_URL}/Media/my.jpg`} alt="Photo" /> */}
+          <img src={totalImg} alt="Photo" />
 
           <h3>ADHULE Jean</h3>
         </div>

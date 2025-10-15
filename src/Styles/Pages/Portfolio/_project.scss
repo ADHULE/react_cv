@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-
-//  1. VARIABLES GLOBALES
-
+// 1. VARIABLES GLOBALES
 
 $color-bg: #f9fafc;
 $color-primary: #3f72af;
@@ -19,9 +17,7 @@ $shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.1);
 $shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 $blur: blur(16px);
 
-
-// 2. MIXINS 
-
+// 2. MIXINS
 
 @mixin button($bg, $color: #fff) {
   display: inline-block;
@@ -34,6 +30,7 @@ $blur: blur(16px);
   cursor: pointer;
   transition: $transition;
   box-shadow: 0 4px 15px rgba($bg, 0.3);
+  animation: fadeIn 1s ease forwards;
 
   &:hover {
     transform: translateY(-3px) scale(1.03);
@@ -46,9 +43,7 @@ $blur: blur(16px);
   }
 }
 
-
 // 3. STRUCTURE DU PORTFOLIO
-
 
 .portfolioContent {
   display: flex;
@@ -57,7 +52,8 @@ $blur: blur(16px);
   min-height: 100vh;
   padding: 50px 20px;
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(120deg, $principal_color ,$second_color);
+  background: linear-gradient(120deg, $principal_color, $second_color);
+  animation: fadeIn 1s ease-in-out;
 
   h2 {
     font-size: 2.2rem;
@@ -67,6 +63,8 @@ $blur: blur(16px);
     color: $color-secondary;
     position: relative;
     letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease forwards;
 
     &::after {
       content: "";
@@ -76,7 +74,7 @@ $blur: blur(16px);
       background: $color-primary;
       border-radius: 2px;
       margin: 10px auto 0;
-      animation: slideIn 1s ease forwards;
+      animation: slideIn 1s ease forwards 0.5s;
     }
   }
 
@@ -84,40 +82,46 @@ $blur: blur(16px);
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    // border: 1px solid black;
-
+    animation: fadeInUp 1s ease forwards 0.8s;
   }
 }
 
+// Effet d'apparition en cascade des projets
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   justify-items: center;
-  // border: 1px solid black;
-  
+  animation: fadeInUp 1s ease forwards;
+
   .project {
-    // border: 1px solid black;
     background: linear-gradient(120deg, $principal_color, $second_color);
-  
     overflow: hidden;
     box-shadow: $shadow-soft;
     transition: $transition;
     position: relative;
     width: 100%;
-  
+    opacity: 0;
+    animation: projectPop 0.8s ease forwards;
 
-    &:hover {
-      transform: translateY(-6px);
-      box-shadow: $shadow-hover;
+    &:nth-child(odd) {
+      animation-delay: 0.3s;
+    }
+    &:nth-child(even) {
+      animation-delay: 0.6s;
     }
 
+    &:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: $shadow-hover;
+    }
 
     h3 {
       font-size: 1.3rem;
       text-align: center;
       color: $color-secondary;
       margin: 15px 0 10px;
+      animation: fadeIn 1s ease forwards 0.4s;
     }
 
     .languagesIcons {
@@ -131,6 +135,7 @@ $blur: blur(16px);
         color: $color-primary;
         font-size: 1.5rem;
         transition: $transition;
+        animation: bounceIn 1.2s ease forwards;
 
         &:hover {
           color: $color-warning;
@@ -146,8 +151,8 @@ $blur: blur(16px);
       border-radius: 30px;
       font-size: 1rem;
       transition: $transition;
+      animation: fadeInUp 1s ease forwards 0.8s;
 
-      
       &:hover {
         background: darken($color-primary, 10%);
       }
@@ -165,9 +170,7 @@ $blur: blur(16px);
   animation: fadeIn 0.6s ease forwards;
 }
 
-
-
-//  4. modèle de détail d'un projet
+// 4. MODAL
 
 .modal-overlay {
   position: fixed;
@@ -185,6 +188,7 @@ $blur: blur(16px);
   &.is-visible {
     opacity: 1;
     visibility: visible;
+    animation: fadeIn 0.5s ease forwards;
   }
 }
 
@@ -196,20 +200,17 @@ $blur: blur(16px);
   max-width: 700px;
   width: 90%;
   color: $color-light;
-  // color: black;
   box-shadow: $shadow-hover;
   transform: translateY(30px);
   transition: all 0.4s ease;
-
-  .modal-overlay.is-visible & {
-    transform: translateY(0);
-  }
+  animation: zoomIn 0.7s ease forwards;
 
   .modal-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    animation: fadeInDown 1s ease forwards;
 
     h3 {
       font-size: 1.8rem;
@@ -228,6 +229,7 @@ $blur: blur(16px);
     line-height: 1.6;
     font-size: 1rem;
     color: $color-muted;
+    animation: fadeInUp 1s ease forwards;
   }
 
   .button.return {
@@ -236,74 +238,41 @@ $blur: blur(16px);
   }
 }
 
-//  5. RESPONSIVE DESIGN
-
-@media (max-width: 768px) {
-  .portfolioContent {
-    padding: 30px 15px;
-
-    h2 {
-      font-size: 1.6rem;
-    }
-
-    .projects {
-      gap: 20px;
-    }
-
-    .project h3 {
-      font-size: 1.1rem;
-    }
-  }
-
-  .modal-content {
-    padding: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolioContent {
-    padding: 20px 10px;
-
-    .radioDisplay {
-      flex-direction: row;
-      align-items: center;
-    }
-
-    .project .projectImage {
-      height: 160px;
-    }
-  }
-
-  .modal-content {
-    padding: 20px;
-    border-radius: 10px;
-  }
-}
-
-
-//  6. ANIMATIONS
-
+// 5. ANIMATIONS
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
-  from {
-    width: 0;
-    opacity: 0;
-  }
+  from { width: 0; opacity: 0; }
+  to { width: 90px; opacity: 1; }
+}
 
-  to {
-    width: 90px;
-    opacity: 1;
-  }
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes projectPop {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }

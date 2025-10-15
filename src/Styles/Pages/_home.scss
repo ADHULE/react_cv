@@ -1,15 +1,41 @@
 .home {
-  // // Background image avec transparence
-  // background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-  //   url('../../Media/dev.jpg') no-repeat center center;
-  // background-size: cover;
+  position: relative;
+  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   color: $text-dark;
-  // background-color: rgba($principal_color, 0.8);
-  min-height: 100vh;
+  overflow: hidden;
 
+  // VAGUES ANIMÉES EN FOND
+  .wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 180px;
+    background: linear-gradient(120deg, rgba($principal-color,0.25), rgba($second_color,0.25));
+    border-radius: 43% 57% 63% 37% / 37% 42% 58% 63%;
+    animation: waveFlow 10s linear infinite;
+    z-index: 0;
+  }
+
+  .wave.wave2 {
+    background: linear-gradient(120deg, rgba($second_color,0.3), rgba($principal-color,0.3));
+    animation: waveFlowReverse 12s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes waveFlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes waveFlowReverse {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+  }
 
   .homeContent {
+    position: relative;
+    z-index: 1;
     background: linear-gradient(120deg, $principal-color, $second_color);
     flex: 1;
     display: flex;
@@ -24,10 +50,11 @@
       backdrop-filter: blur(15px);
       border-radius: 20px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
       gap: 40px;
+      animation: fadeInUp 1s ease forwards;
 
       .hero-header {
         text-align: center;
@@ -35,22 +62,25 @@
         h1 {
           font-size: 3rem;
           font-weight: 700;
+          animation: floatText 4s ease-in-out infinite;
 
-          .name-bold {
-            color: $primary-color;
-          }
+          .name-bold { color: $primary-color; }
         }
 
         h2 {
           font-size: 1.6rem;
           margin-top: 10px;
           color: $secondary-color;
+          opacity: 0;
+          animation: fadeIn 1.2s ease forwards 0.3s;
         }
 
         .hook {
           margin-top: 20px;
           font-size: 1.2rem;
           font-weight: 400;
+          opacity: 0;
+          animation: fadeIn 1.5s ease forwards 0.6s;
         }
       }
 
@@ -65,27 +95,17 @@
           background: rgba(255, 255, 255, 0.15);
           padding: 20px;
           border-radius: 15px;
-          transition: all 0.3s ease;
+          transition: all 0.4s ease;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 
           &:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            transform: translateY(-8px) scale(1.02);
           }
 
-          h3 {
-            color: $primary-color;
-            margin-bottom: 10px;
-          }
-
-          p {
-            color: $text-light;
-            line-height: 1.6;
-          }
-
-          span {
-            color: $accent-color;
-            font-weight: 700;
-          }
+          h3 { color: $primary-color; margin-bottom: 10px; }
+          p { color: $text-light; line-height: 1.6; }
+          span { color: $accent-color; font-weight: 700; }
         }
       }
 
@@ -95,6 +115,7 @@
         .cta-text {
           font-size: 1.1rem;
           margin-bottom: 15px;
+          animation: fadeIn 2s ease forwards 1s;
         }
 
         .download-button {
@@ -104,7 +125,8 @@
           border-radius: 30px;
           font-weight: 600;
           text-decoration: none;
-          transition: all 0.3s ease;
+          transition: all 0.4s ease;
+          animation: bounce 2s infinite alternate;
 
           &:hover {
             background: $accent-color;
@@ -116,38 +138,75 @@
     }
   }
 
-  // Media queries
+  // --- ANIMATIONS GLOBALES ---
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  // --- RESPONSIVE DESIGN ---
+  @media (max-width: 1200px) {
+    .hero-main { gap: 30px; }
+  }
+
   @media (max-width: 1024px) {
-    .hero-main {
-      flex-direction: column;
-      gap: 20px;
+    .hero-main { flex-direction: column; gap: 20px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-header {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.4rem; }
+      .hook { font-size: 1.1rem; }
     }
+    .hero-main .left-panel,
+    .hero-main .right-panel { flex: 1 1 100%; }
   }
 
   @media (max-width: 600px) {
     .hero-header {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.2rem;
-      }
-
-      .hook {
-        font-size: 1rem;
-      }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.2rem; }
+      .hook { font-size: 1rem; }
     }
 
     .hero-footer {
-      .cta-text {
-        font-size: 1rem;
-      }
-
-      .download-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
+      .cta-text { font-size: 1rem; }
+      .download-button { padding: 10px 20px; font-size: 0.9rem; }
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 10px;
+    .hero { padding: 20px; gap: 30px; }
+    .hero-header h1 { font-size: 1.8rem; }
+    .hero-header h2 { font-size: 1.1rem; }
+    .hero-header .hook { font-size: 0.95rem; }
+    .hero-main { gap: 15px; }
+  }
+
+  @media (max-width: 360px) {
+    .hero { padding: 15px; gap: 20px; }
+    .hero-header h1 { font-size: 1.5rem; }
+    .hero-header h2 { font-size: 1rem; }
+    .hero-header .hook { font-size: 0.85rem; }
+    .hero-footer .cta-text { font-size: 0.9rem; }
+    .hero-footer .download-button { padding: 8px 15px; font-size: 0.8rem; }
   }
 }

@@ -2,6 +2,19 @@
   background-color: #f9f9f9;
   font-family: 'Segoe UI', sans-serif;
   color: #333;
+  animation: fadeInContainer 0.8s ease-in-out;
+
+  /* ===== Animation globale de la page ===== */
+  @keyframes fadeInContainer {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   .contactContent {
     width: 100%;
@@ -10,9 +23,20 @@
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     background: linear-gradient(120deg, $principal-color, $second_color);
+    animation: fadeInCard 0.8s ease-out forwards;
 
+    @keyframes fadeInCard {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-    // header designer
+    /* ===== HEADER ===== */
     .header {
       height: 420px;
       position: relative;
@@ -21,10 +45,19 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      // border: 2px solid black;
       border-radius: 50%;
+      animation: headerAppear 1s ease-out;
 
-
+      @keyframes headerAppear {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
       &::before {
         content: '';
@@ -37,7 +70,6 @@
       h1 {
         position: relative;
         z-index: 2;
-        // color: #fff;
         font-size: 2.3rem;
         font-weight: 700;
         text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
@@ -46,22 +78,34 @@
 
       &:hover {
         box-shadow: 0 0 0 2px $second_color;
-        transform: scale(1.01);
-        transition: all 0.3s ease;
+        transform: scale(1.03);
+        transition: all 0.4s ease;
       }
     }
 
-    // info designer
+    /* ===== INFO BOX ===== */
     .contactBox {
-
       background: linear-gradient(120deg, $principal-color, $second_color);
-
+      animation: fadeInUp 1s ease both;
+      animation-delay: 0.3s;
 
       h2 {
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
         text-align: center;
-        color: #0077b6;
+        color: $text_color;
+        animation: slideDown 0.8s ease-in-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       ul {
@@ -73,46 +117,75 @@
           align-items: center;
           margin-bottom: 1rem;
           font-size: 1.1rem;
-          // background: #f1f5f9;
           padding: 0.8rem 1rem;
           border-radius: 8px;
-          transition: background 0.3s ease;
+          transition: all 0.3s ease;
+          opacity: 0;
+          animation: fadeInList 0.8s ease forwards;
+          animation-delay: 0.5s;
+
+          @keyframes fadeInList {
+            from {
+              opacity: 0;
+              transform: translateX(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
 
           &:hover {
             background: #e0f2fe;
+            transform: translateX(6px);
           }
 
           i {
             margin-right: 0.8rem;
             color: #0077b6;
             font-size: 1.4rem;
-            transition: color 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
+
+            &:hover {
+              transform: rotate(12deg);
+            }
           }
 
           .clikInput {
             cursor: pointer;
             color: #023e8a;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
 
             &:hover {
               color: #0096c7;
               text-decoration: underline;
+              transform: translateX(4px);
             }
           }
         }
       }
     }
 
-    // designer sicial network
+    /* ===== RÉSEAUX SOCIAUX ===== */
     .socialNetwork {
       background: linear-gradient(220deg, $principal-color, $second_color);
-
-      // margin: 2.5rem 0;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 1.2rem;
       padding: 0 2rem 2rem;
+      animation: fadeInSocial 1s ease both;
+      animation-delay: 0.4s;
 
+      @keyframes fadeInSocial {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
       a {
         display: flex;
@@ -125,39 +198,42 @@
         padding: 1rem;
         text-decoration: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
 
         i {
           font-size: 2rem;
           color: #0077b6;
           margin-bottom: 0.5rem;
+          transition: transform 0.4s ease;
         }
 
         h4 {
           font-size: 1rem;
           color: #0077b6;
+          transition: transform 0.4s ease;
         }
 
         &:hover {
           background: $second_color;
-          transform: translateY(-4px);
+          transform: translateY(-6px) scale(1.05);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
           i,
           h4 {
             color: #fff;
+            transform: scale(1.1);
           }
         }
       }
     }
   }
 
-  //  les animations
+  /* ===== ANIMATIONS GLOBALES ===== */
   @keyframes fadeInUp {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
@@ -169,14 +245,13 @@
       opacity: 0;
       transform: scale(0.9);
     }
-
     to {
       opacity: 1;
       transform: scale(1);
     }
   }
 
-  //  responsive designer
+  /* ===== RESPONSIVE DESIGN ===== */
   @media screen and (max-width: 768px) {
     .contactContent {
       border-radius: 10px;

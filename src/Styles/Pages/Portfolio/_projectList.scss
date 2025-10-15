@@ -1,21 +1,17 @@
-
 // 1. VARIABLES
-
-
 
 $light-text: #a6c51a;
 $dark-text: #0c0808;
 $muted-text: #6ae06a;
 
 $dark-bg-overlay: rgba(0, 0, 0, 0.6);
-$light-bg: rgba(255, 255, 255, 0.15); // effet "glass"
+$light-bg: rgba(255, 255, 255, 0.15);
 $border-radius: 14px;
 $transition-speed: 0.35s;
 $fast-transition: all $transition-speed ease-in-out;
 $blur-effect: blur(12px);
 $shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.25);
 $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
-
 
 // 2. MIXINS
 @mixin modern-button($bg-color, $shadow-color) {
@@ -30,6 +26,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   border: none;
   box-shadow: 0 4px 15px rgba($shadow-color, 0.3);
   letter-spacing: 0.5px;
+  animation: fadeInUp 0.7s ease both;
 
   &:hover {
     transform: translateY(-3px) scale(1.03);
@@ -42,9 +39,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-
 // 3. MODALE OVERLAY
-
 
 .modal-overlay {
   position: fixed;
@@ -55,7 +50,6 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   justify-content: center;
   align-items: center;
   z-index: 9999;
-
   visibility: hidden;
   opacity: 0;
   transition: opacity $transition-speed ease, visibility $transition-speed;
@@ -63,10 +57,9 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   &.is-visible {
     visibility: visible;
     opacity: 1;
-    animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 0.6s ease forwards;
   }
 }
-
 
 // 4. MODALE CONTENT
 
@@ -78,24 +71,19 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   border-radius: $border-radius;
   max-width: 700px;
   width: 90%;
-  color: black;
   color: $dark-text;
   box-shadow: $shadow-soft;
   position: relative;
   overflow-y: auto;
   max-height: 90vh;
-
-  // Animation d'apparition
   opacity: 0;
-  transform: translateY(20px) scale(0.96);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: translateY(30px) scale(0.96);
+  transition: all 0.5s ease;
 
   .modal-overlay.is-visible & {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    animation: zoomIn 0.7s ease forwards;
   }
 
-  // ===== HEADER =====
   .modal-head {
     display: flex;
     justify-content: space-between;
@@ -103,6 +91,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 18px;
     margin-bottom: 25px;
+    animation: fadeInDown 0.8s ease both;
 
     h3 {
       color: $principal-color;
@@ -111,6 +100,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 1px;
+      animation: glowIn 1.2s ease both;
     }
 
     .sourceCode .button {
@@ -119,16 +109,17 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
     }
   }
 
-  // ===== BODY =====
   .modal-body {
     line-height: 1.7;
     color: $muted-text;
     font-size: 1.8rem;
     text-align: justify;
     padding: 10px 0;
+    animation: fadeInUp 0.9s ease both 0.3s;
 
     p {
       margin-bottom: 18px;
+      animation: fadeIn 0.6s ease both;
     }
 
     ul {
@@ -138,18 +129,18 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
       li {
         margin-bottom: 8px;
         list-style: disc;
+        animation: listPop 0.6s ease both;
       }
     }
   }
 
-  //  FOOTER / BOUTON DE RETOUR 
   .button.return {
     @include modern-button($second-color, $second-color);
     margin-top: 30px;
     display: inline-block;
+    animation: fadeInUp 1s ease both 0.4s;
   }
 }
-
 
 // 5. ANIMATIONS
 
@@ -158,31 +149,83 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
     opacity: 0;
     transform: scale(0.97);
   }
-
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes listPop {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowIn {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+}
 
 // 6. EXTRA DESIGN TOUCHES
 
 .modal-content::before {
   content: "";
   position: absolute;
-
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.25),
-      rgba(255, 255, 255, 0.05));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
   z-index: -1;
+  animation: fadeIn 1s ease both;
 }
 
 .modal-content:hover {
   box-shadow: $shadow-hover;
   transform: translateY(-4px) scale(1.01);
+  transition: $fast-transition;
 }
 
 .radioDisplay {
@@ -191,6 +234,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   justify-content: center;
   margin-bottom: 30px;
   flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease both;
 
   .radioItem {
     label {
@@ -201,165 +245,39 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
       cursor: pointer;
       transition: $fast-transition;
       font-size: 0.95rem;
+      animation: fadeIn 0.6s ease both;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba($light-text, 0.4);
+      }
     }
 
     input[type="radio"] {
       display: none;
 
-      &:checked+label {
+      &:checked + label {
         background: linear-gradient(135deg, $principal-color, $second-color);
         color: #fff;
         box-shadow: 0 4px 15px rgba($second-color, 0.4);
+        animation: pulse 0.7s ease both;
       }
-    }
-  }
-
-}
-
-// 7. RESPONSIVITÉ (ADAPTATION ÉCRANS)
-
-
-/*  Grands écrans (≥ 1025px) */
-@media screen and (min-width: 1025px) {
-  .modal-content {
-    max-width: 700px;
-    padding: 40px;
-
-    .modal-head h3 {
-      font-size: 1.8rem;
-    }
-
-    .modal-body {
-      font-size: 1.8rem;
-    }
-
-    .button.return {
-      font-size: 1rem;
-      padding: 10px 24px;
-    }
-  }
-
-  .radioDisplay {
-    gap: 20px;
-
-    .radioItem label {
-      font-size: 0.95rem;
-      padding: 8px 16px;
     }
   }
 }
 
-/* Ordinateurs standards (769px–1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .modal-content {
-    max-width: 85%;
-    padding: 30px;
-
-    .modal-head h3 {
-      font-size: 1.6rem;
-    }
-
-    .modal-body {
-      font-size: 1.4rem;
-    }
-
-    .button.return {
-      font-size: 0.95rem;
-    }
+// Animation "pulse" douce pour bouton radio actif
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
-
-  .radioDisplay {
-    gap: 16px;
-
-    .radioItem label {
-      font-size: 0.9rem;
-      padding: 7px 14px;
-    }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba($light-text, 0.5);
   }
-}
-
-/* Tablettes (581px–768px) */
-@media screen and (min-width: 581px) and (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-    padding: 25px;
-
-    .modal-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-
-      h3 {
-        font-size: 1.3rem;
-      }
-
-      .sourceCode .button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    .modal-body {
-      font-size: 1.2rem;
-    }
-
-    .button.return {
-      font-size: 0.9rem;
-      padding: 10px 20px;
-    }
-  }
-
-  .radioDisplay {
-    gap: 12px;
-
-    .radioItem label {
-      font-size: 0.9rem;
-      padding: 6px 14px;
-    }
-  }
-}
-
-/* Petits smartphones (≤ 580px) */
-@media screen and (max-width: 580px) {
-  .modal-content {
-    width: 95%;
-    padding: 20px;
-    border-radius: 10px;
-
-    .modal-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-
-      h3 {
-        font-size: 1.1rem;
-      }
-
-      .sourceCode .button {
-        width: 100%;
-        text-align: center;
-        font-size: 0.85rem;
-      }
-    }
-
-    .modal-body {
-      font-size: 0.95rem;
-    }
-
-    .button.return {
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-      font-size: 0.9rem;
-    }
-  }
-
-  .radioDisplay {
-    gap: 10px;
-
-    .radioItem label {
-      font-size: 0.85rem;
-      padding: 6px 12px;
-    }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
 }
