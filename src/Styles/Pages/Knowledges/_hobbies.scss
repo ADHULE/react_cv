@@ -7,7 +7,7 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: $accent-color;
+
     animation: fadeInDown 0.8s ease-out both;
   }
 
@@ -17,11 +17,12 @@
     gap: 1.5rem;
     justify-content: center;
     animation: fadeInUp 1s ease-in-out both;
-
+    
     // Animation d’apparition progressive des blocs
     .sport,
     .developpment,
     .culture {
+      background: linear-gradient(220deg, $principal-color, $second_color);
       flex: 1 1 280px;
       background-color: #ffffff;
       border-radius: 12px;
@@ -31,6 +32,7 @@
       opacity: 0;
       transform: translateY(30px);
       animation: fadeCardUp 0.8s ease forwards;
+      border: 1px solid $second-color;
 
       &:nth-child(1) { animation-delay: 0.2s; }
       &:nth-child(2) { animation-delay: 0.4s; }

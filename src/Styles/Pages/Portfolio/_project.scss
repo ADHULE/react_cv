@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-// 1. VARIABLES GLOBALES
+// VARIABLES GLOBALES
 
 $color-bg: #f9fafc;
 $color-primary: #3f72af;
@@ -17,13 +17,13 @@ $shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.1);
 $shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
 $blur: blur(16px);
 
-// 2. MIXINS
+// MIXINS
 
 @mixin button($bg, $color: #fff) {
   display: inline-block;
   background: linear-gradient(135deg, lighten($bg, 5%), darken($bg, 5%));
   color: $color;
-  padding: 10px 22px;
+  // padding: 10px 22px;
   border: none;
   border-radius: 30px;
   font-weight: 600;
@@ -43,12 +43,12 @@ $blur: blur(16px);
   }
 }
 
-// 3. STRUCTURE DU PORTFOLIO
+// STRUCTURE DU PORTFOLIO
 
 .portfolioContent {
   display: flex;
   flex-direction: column;
-  background: $color-bg;
+  
   min-height: 100vh;
   padding: 50px 20px;
   font-family: "Roboto", sans-serif;
@@ -170,7 +170,7 @@ $blur: blur(16px);
   animation: fadeIn 0.6s ease forwards;
 }
 
-// 4. MODAL
+// MODAL
 
 .modal-overlay {
   position: fixed;
@@ -199,7 +199,8 @@ $blur: blur(16px);
   padding: 40px;
   max-width: 700px;
   width: 90%;
-  color: $color-light;
+  // color: $color-light;
+  color: $success_color;
   box-shadow: $shadow-hover;
   transform: translateY(30px);
   transition: all 0.4s ease;
@@ -238,7 +239,7 @@ $blur: blur(16px);
   }
 }
 
-// 5. ANIMATIONS
+// ANIMATIONS
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }

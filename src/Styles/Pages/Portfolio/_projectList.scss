@@ -1,8 +1,6 @@
-// 1. VARIABLES
+// VARIABLES
 
-$light-text: #a6c51a;
-$dark-text: #0c0808;
-$muted-text: #6ae06a;
+
 
 $dark-bg-overlay: rgba(0, 0, 0, 0.6);
 $light-bg: rgba(255, 255, 255, 0.15);
@@ -13,7 +11,7 @@ $blur-effect: blur(12px);
 $shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.25);
 $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
 
-// 2. MIXINS
+//MIXINS
 @mixin modern-button($bg-color, $shadow-color) {
   padding: 10px 24px;
   border-radius: $border-radius;
@@ -39,7 +37,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-// 3. MODALE OVERLAY
+//MODALE OVERLAY
 
 .modal-overlay {
   position: fixed;
@@ -61,7 +59,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-// 4. MODALE CONTENT
+// MODALE CONTENT
 
 .modal-content {
   background: $light-bg;
@@ -142,75 +140,8 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
-// 5. ANIMATIONS
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes listPop {
-  0% {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes glowIn {
-  0% {
-    opacity: 0;
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
-  }
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-  }
-}
-
-// 6. EXTRA DESIGN TOUCHES
+// EXTRA DESIGN TOUCHES
 
 .modal-content::before {
   content: "";
@@ -256,7 +187,7 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
     input[type="radio"] {
       display: none;
 
-      &:checked + label {
+      &:checked+label {
         background: linear-gradient(135deg, $principal-color, $second-color);
         color: #fff;
         box-shadow: 0 4px 15px rgba($second-color, 0.4);
@@ -266,16 +197,92 @@ $shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.35);
   }
 }
 
+// ANIMATIONS
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes listPop {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowIn {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+}
+
 // Animation "pulse" douce pour bouton radio actif
 @keyframes pulse {
   0% {
     transform: scale(1);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
+
   50% {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba($light-text, 0.5);
   }
+
   100% {
     transform: scale(1);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);

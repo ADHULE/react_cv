@@ -4,10 +4,10 @@
     h2 {
         text-align: center;
         font-size: 2rem;
-        // color: $principal_color;
         margin-bottom: 25px;
         letter-spacing: 1px;
         text-transform: uppercase;
+        
     }
 
     .content {
@@ -27,6 +27,7 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            border: 1px solid $second-color;
 
             &:hover {
                 // box-shadow: 0 5px 20px rgba($principal_color, 0.4);

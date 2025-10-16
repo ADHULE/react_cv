@@ -9,7 +9,6 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 0.5rem;
     font-size: 2rem;
-    color: $success_color;
     animation: fadeInDown 0.8s ease-out both;
   }
 
@@ -22,7 +21,6 @@
     animation: fadeInUp 1s ease-in-out both;
 
     .experienceCard {
-      background-color: $bg-green-gradient;
       backdrop-filter: blur(4px);
       border-radius: 10px;
       padding: 1.5rem;
@@ -34,11 +32,20 @@
       opacity: 0;
       transform: translateY(30px);
       animation: cardFadeUp 0.8s ease forwards;
+      border: 1px solid $second-color;
 
       // effet différé pour chaque carte
-      &:nth-child(1) { animation-delay: 0.2s; }
-      &:nth-child(2) { animation-delay: 0.4s; }
-      &:nth-child(3) { animation-delay: 0.6s; }
+      &:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
 
       &:hover {
         transform: translateY(-8px) scale(1.02);
@@ -56,15 +63,15 @@
           font-weight: 600;
           margin: 0;
           text-transform: capitalize;
-          color: $secondary-color;
           text-align: left;
+          color: $second-color;
         }
 
         .annee {
           font-size: 1rem;
           opacity: 0.75;
           font-style: italic;
-          color: $success_color;
+          color: $principal-color;
         }
       }
 
@@ -72,82 +79,18 @@
         font-size: 1rem;
         font-weight: 500;
         margin-bottom: 0.8rem;
-        color: rgba(0, 0, 0, 0.7);
+
       }
 
       .description {
         font-size: 0.95rem;
         line-height: 1.6;
         text-align: justify;
-        color: $text_color;
+        
       }
     }
   }
 
-  // === Animations ===
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-25px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes cardFadeUp {
-    0% {
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  // === Responsive Design ===
-  @media screen and (max-width: 480px) {
-    padding: 1rem;
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .experienceContent {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .experienceCard {
-      padding: 0.8rem;
-
-      .experienceHeader h3 {
-        font-size: 1rem;
-      }
-
-      .annee {
-        font-size: 0.85rem;
-      }
-
-      .description {
-        font-size: 0.85rem;
-      }
-    }
-  }
 
   @media screen and (min-width: 481px) and (max-width: 768px) {
     padding: 1.5rem;
@@ -187,6 +130,74 @@
   @media screen and (min-width: 1025px) {
     .experienceContent {
       gap: 2rem;
+    }
+  }
+
+  // === Animations ===
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-25px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes cardFadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  // === Responsive Design ===
+  @media screen and (max-width: 480px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .experienceContent {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .experienceCard {
+      padding: 0.8rem;
+
+      .experienceHeader h3 {
+        font-size: 1rem;
+      }
+
+      .annee {
+        font-size: 0.85rem;
+      }
+
+      .description {
+        font-size: 0.85rem;
+      }
     }
   }
 }

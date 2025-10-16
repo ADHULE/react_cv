@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// **************************************************
-// ❌ Retirer la déclaration globale 'const modalRoot'
-// **************************************************
-
 // Composant de portail générique pour vos modales
 class Modal extends React.Component {
   constructor(props) {
@@ -14,7 +10,7 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    // 💡 RECHERCHEZ L'ÉLÉMENT ICI pour garantir qu'il existe
+    //rechercher les éléments pour les afficher
     const modalRoot = document.getElementById('modal-root');
     
     // **Vérification de sécurité** : S'assurer que le conteneur existe

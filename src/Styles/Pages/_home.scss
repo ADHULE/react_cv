@@ -55,6 +55,7 @@
       flex-direction: column;
       gap: 40px;
       animation: fadeInUp 1s ease forwards;
+      border: 1px solid $second-color;
 
       .hero-header {
         text-align: center;
@@ -103,9 +104,9 @@
             transform: translateY(-8px) scale(1.02);
           }
 
-          h3 { color: $primary-color; margin-bottom: 10px; }
+          h3 { color:$text_color; margin-bottom: 10px; }
           p { color: $text-light; line-height: 1.6; }
-          span { color: $accent-color; font-weight: 700; }
+          span { color: $second-color; font-weight: 700; }
         }
       }
 
@@ -119,7 +120,7 @@
         }
 
         .download-button {
-          background: $success_color;
+          background: $second_color;
           color: $text-light;
           padding: 12px 25px;
           border-radius: 30px;
